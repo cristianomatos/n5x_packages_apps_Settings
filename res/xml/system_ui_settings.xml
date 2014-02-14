@@ -34,6 +34,12 @@
         android:fragment="com.android.settings.cyanogenmod.NotificationDrawer"
         android:title="@string/notification_drawer_title" />
 
+    <PreferenceScreen
+	android:key="lcd_density_setup"
+        android:fragment="com.android.settings.n5x.DensityChanger"
+        android:title="@string/lcd_density_title"
+        android:summary="@string/lcd_density_summary" />
+
     <PreferenceCategory
             android:key="expanded_desktop_category"
             android:title="@string/power_menu_expanded_desktop" >
