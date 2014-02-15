@@ -58,13 +58,12 @@
     <string name="su_dialog_error_title">Warning</string>
     <string name="su_dialog_error_message">An error occurred.\n\nPlease check for root access. To activate go into superuser settings and enable root access.</string>
     <string name="lcd_density_title">LCD density</string>
-    <string name="lcd_density_summary">unknown</string>
     <string name="current_lcd_density">"Current LCD Density: "</string>
     <string name="lcd_density_wizard">LCD Density Wizard</string>
     <string name="stock_density_title">Change to preset values</string>
     <string name="stock_density_summary">Tablets and older phones use 160. Most phones use 240.</string>
     <string name="stock_density_changed_summary">"Density set to: "</string>
-    <string name="reboot_title">Reboot NOW!</string>
+    <string name="reboot_title">Reboot now!</string>
     <string name="clear_market_data_title">Clear all relevant market data.</string>
     <string name="clear_market_data_summary">This step clears data from market, google play services and google services framework.</string>
     <string name="clear_market_data_cleared">Data successfully cleared</string>
