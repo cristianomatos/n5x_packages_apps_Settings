@@ -282,6 +282,13 @@
         android:icon="@drawable/ic_settings_development"
         android:title="@string/development_settings_title" />
 
+    <!-- Wakelock Blocker -->
+    <header
+        android:id="@+id/wakelock_blocker"
+        android:fragment="com.android.settings.n5x.WakeLockBlocker" 
+        android:icon="@drawable/ic_settings_wakelock_blocker"
+        android:title="@string/wakelock_blocker" />
+
     <!-- Superuser -->
     <header
         android:id="@+id/superuser"
