@@ -41,6 +41,13 @@
             android:entries="@array/volume_overlay_entries"
             android:entryValues="@array/volume_overlay_values" />
 
+    <!-- Volume steps -->
+    <PreferenceScreen
+            android:key="volume_steps"
+            android:fragment="com.android.settings.n5x.VolumeSteps"
+            android:summary="@string/volume_steps_summary"
+            android:title="@string/volume_steps_title" />
+
     <PreferenceCategory
             android:key="category_automation_effects"
             android:title="@string/automation_effects_title"/>
