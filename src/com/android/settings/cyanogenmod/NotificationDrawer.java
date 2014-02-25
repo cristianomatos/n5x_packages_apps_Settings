@@ -16,15 +16,21 @@
 
 package com.android.settings.cyanogenmod;
 
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.provider.Settings;
+import android.os.UserHandle;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -104,10 +110,10 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         } else if (preference == mReminder) {
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.REMINDER_ALERT_ENABLED,
-                    (Boolean) newValue ? 1 : 0, UserHandle.USER_CURRENT);
+                    (Boolean) objValue ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mReminderMode) {
-            int mode = Integer.valueOf((String) newValue);
+            int mode = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.REMINDER_ALERT_NOTIFY,
                     mode, UserHandle.USER_CURRENT);
@@ -115,7 +121,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
             mReminderRingtone.setEnabled(mode != 0);
             return true;
         } else if (preference == mReminderRingtone) {
-            Uri val = Uri.parse((String) newValue);
+            Uri val = Uri.parse((String) objValue);
             Ringtone ringtone = RingtoneManager.getRingtone(getActivity(), val);
             mReminderRingtone.setSummary(ringtone.getTitle(getActivity()));
             Settings.System.putStringForUser(getContentResolver(),
