@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/pt_general" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="s2w"
+            android:summary="@string/ps_s2w"
+            android:title="@string/pt_s2w" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="fastcharge"
+            android:summary="@string/ps_fastcharge"
+            android:title="@string/pt_fastcharge" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="iphone5"
+            android:summary="@string/ps_iphone5"
+            android:title="@string/pt_iphone5" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="halfbreed"
+            android:summary="@string/ps_halfbreed"
+            android:title="@string/pt_halfbreed" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

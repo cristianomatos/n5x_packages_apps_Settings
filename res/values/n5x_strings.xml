@@ -197,4 +197,27 @@
     <string name="noti_reminder_sound_looping">Until dismissed</string>
     <string name="noti_reminder_ringtone">Notify ringtone</string>
 
+    <!-- Init.d -->
+    <string name="header_summary_init_d">@null</string>
+    <string name="init_d_title">N5X Init.d</string>
+    <string name="app_name">N5X Init.d Conf</string>
+    <string name="pt_general">General</string>
+    <string name="pt_s2w">Sweep-to-Wake</string>
+    <string name="ps_s2w">Enable/disable sweep-to-wake screen</string>
+    <string name="pt_fastcharge">USB Fastcharge</string>
+    <string name="ps_fastcharge">Enable/disable USB Fastcharge</string>
+    <string name="pt_iphone5">iPhone 5 Color Profile</string>
+    <string name="ps_iphone5">Enable/disable iPhone 5 Colors</string>
+    <string name="pt_halfbreed">Halfbreed Color Profile</string>
+    <string name="ps_halfbreed">Enable/disable Halfbreed Colors</string>
+    <string name="pt_init_d_credits">Modified by:</string>
+    <string name="ps_init_d_credits">AndersonAragao</string>
+    <string name="dt_init_d_error">Init.d error</string>
+    <string name="dm_init_d_error">It looks like init.d isn\'t setup properly. Please contact your ROM developer.</string>
+    <string name="db_exit">Exit</string>
+
+    <!-- Init.d Settings : Warning dialog -->
+    <string name="init_warning_title">Init.d Script Enabler</string>
+    <string name="init_warning">Here you can enable or disable init.d tweaks that are built into the system. If you are enabling a color profile, please enable only one! After choosing your tweaks, please reboot your phone to make the changes!</string>
+
 </resources>
