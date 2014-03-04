@@ -56,6 +56,12 @@
             android:fragment="com.android.settings.n5x.LockscreenNotifications"
             android:summary="@string/lockscreen_notifications_summary" />
 
+        <PreferenceScreen
+            android:key="active_display"	
+            android:fragment="com.android.settings.n5x.ActiveDisplaySettings"	
+            android:title="@string/ad_settings_title"	
+            android:summary="@string/ad_settings_summary" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
