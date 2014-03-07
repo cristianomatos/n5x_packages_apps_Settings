@@ -35,14 +35,20 @@
         android:title="@string/notification_drawer_title" />
 
     <CheckBoxPreference
-            android:key="disable_fc_notifications"
-            android:title="@string/disable_fc_notifications_title"
-            android:summary="@string/disable_fc_notifications_summary" />
+            android:key="custom_recent_mode"
+            android:title="@string/custom_recent_title"
+            android:summary="@string/custom_recent_summary"
+            android:persistent="false" />
 
     <PreferenceScreen
         android:key="recents_panel"
         android:fragment="com.android.settings.n5x.RecentsPanelSettings"
         android:title="@string/recents_panel_settings_title" />
+
+    <CheckBoxPreference
+            android:key="disable_fc_notifications"
+            android:title="@string/disable_fc_notifications_title"
+            android:summary="@string/disable_fc_notifications_summary" />
 
     <PreferenceScreen
 	android:key="lcd_density_setup"

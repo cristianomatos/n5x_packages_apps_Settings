@@ -28,7 +28,7 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.WindowManagerGlobal;
-
+import com.android.settings.n5x.util.Helpers;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -45,6 +45,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     // Custom Navigation Bar Height Key
     private static final String KEY_NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
+    private static final String CUSTOM_RECENT_MODE = "custom_recent_mode";
     private static final String PREF_DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
 
     private ListPreference mExpandedDesktopPref;
@@ -52,6 +53,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     // Custom Navigation Bar Height Preference
     private ListPreference mNavButtonsHeight;
     private CheckBoxPreference mNavigationBarLeftPref;
+    private CheckBoxPreference mRecentsCustom;
     CheckBoxPreference mDisableFC;
 
     @Override
@@ -73,6 +75,12 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         mExpandedDesktopPref = (ListPreference) findPreference(KEY_EXPANDED_DESKTOP);
         mExpandedDesktopNoNavbarPref =
                 (CheckBoxPreference) findPreference(KEY_EXPANDED_DESKTOP_NO_NAVBAR);
+
+        boolean enableRecentsCustom = Settings.System.getBoolean(getContentResolver(),
+                                      Settings.System.CUSTOM_RECENT, false);
+        mRecentsCustom = (CheckBoxPreference) findPreference(CUSTOM_RECENT_MODE);
+        mRecentsCustom.setChecked(enableRecentsCustom);
+        mRecentsCustom.setOnPreferenceChangeListener(this);
 
         // Custom Navigation Bar Height
         mNavButtonsHeight = (ListPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
@@ -139,6 +147,12 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             Settings.System.putInt(resolver, Settings.System.NAVIGATION_BAR_HEIGHT, 
                     Integer.valueOf((String) objValue));
             mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntries()[index]);
+            return true;
+        } else if (preference == mRecentsCustom) { // Enable||disbale Slim Recent
+            Settings.System.putBoolean(getActivity().getContentResolver(),
+                    Settings.System.CUSTOM_RECENT,
+                    ((Boolean) objValue) ? true : false);
+            Helpers.restartSystemUI();
             return true;
         }
 
