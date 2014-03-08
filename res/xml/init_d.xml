@@ -9,6 +9,16 @@
             android:title="@string/pt_s2w" />
         <CheckBoxPreference
             android:defaultValue="false"
+            android:key="d2w"
+            android:summary="@string/ps_d2w"
+            android:title="@string/pt_d2w" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="ecomode"
+            android:summary="@string/ps_ecomode"
+            android:title="@string/pt_ecomode" />
+        <CheckBoxPreference
+            android:defaultValue="false"
             android:key="fastcharge"
             android:summary="@string/ps_fastcharge"
             android:title="@string/pt_fastcharge" />

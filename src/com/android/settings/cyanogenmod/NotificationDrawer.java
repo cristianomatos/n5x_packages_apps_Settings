@@ -23,6 +23,7 @@ import android.content.res.Resources;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -35,9 +36,13 @@ import android.os.UserHandle;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.android.internal.util.n5x.DeviceUtils;
+
 public class NotificationDrawer extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "NotificationDrawer";
+
+    private static final String PRE_SMART_PULLDOWN = "smart_pulldown";
 
     private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
 
@@ -48,6 +53,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     private static final String PREF_NOTI_REMINDER_RINGTONE =
             "noti_reminder_ringtone";
 
+    private ListPreference mSmartPulldown;
     private ListPreference mCollapseOnDismiss;
 
     CheckBoxPreference mReminder;
@@ -60,6 +66,18 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.notification_drawer);
         PreferenceScreen prefScreen = getPreferenceScreen();
+
+        // Smart Pulldown
+        mSmartPulldown = (ListPreference) findPreference(PRE_SMART_PULLDOWN);
+        if (!DeviceUtils.isPhone(getActivity())) {
+            prefScreen.removePreference(mSmartPulldown);
+        } else {
+            mSmartPulldown.setOnPreferenceChangeListener(this);
+            int smartPulldown = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.QS_SMART_PULLDOWN, 0, UserHandle.USER_CURRENT);
+            mSmartPulldown.setValue(String.valueOf(smartPulldown));
+            updateSmartPulldownSummary(smartPulldown);
+        }
 
         // Notification drawer
         int collapseBehaviour = Settings.System.getInt(getContentResolver(),
@@ -101,7 +119,13 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mCollapseOnDismiss) {
+        if (preference == mSmartPulldown) {
+            int smartPulldown = Integer.valueOf((String) objValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.QS_SMART_PULLDOWN,
+                    smartPulldown);
+            updateSmartPulldownSummary(smartPulldown);
+            return true;
+        } else if (preference == mCollapseOnDismiss) {
             int value = Integer.valueOf((String) objValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_COLLAPSE_ON_DISMISS, value);
@@ -131,6 +155,20 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         }
 
         return false;
+    }
+
+    private void updateSmartPulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // Smart pulldown deactivated
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_off));
+        } else {
+            String type = res.getString(value == 2
+                    ? R.string.smart_pulldown_persistent
+                    : R.string.smart_pulldown_dismissable);
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
+        }
     }
 
     private void updateCollapseBehaviourSummary(int setting) {

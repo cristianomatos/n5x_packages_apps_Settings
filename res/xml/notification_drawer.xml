@@ -20,6 +20,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <ListPreference
+        android:key="smart_pulldown"
+        android:title="@string/smart_pulldown_title"
+        android:entries="@array/smart_pulldown_entries"
+        android:entryValues="@array/smart_pulldown_values"
+        android:persistent="false" />
+
+    <ListPreference
         android:key="notification_drawer_collapse_on_dismiss"
         android:title="@string/notification_drawer_collapse_on_dismiss_title"
         android:dialogTitle="@string/notification_drawer_collapse_on_dismiss_title"

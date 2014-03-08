@@ -45,13 +45,15 @@ public class InitD extends SettingsPreferenceFragment {
     private static final String INIT_D_CFG = "/system/etc/init.d.cfg";
 
     private static final String KEY_S2W = "s2w";
+    private static final String KEY_D2W = "d2w";
+    private static final String KEY_ECOMODE = "ecomode";
     private static final String KEY_FASTCHARGE = "fastcharge";
     private static final String KEY_IPHONE5 = "iphone5";
     private static final String KEY_HALFBREED = "halfbreed";
     private static final String KEY_INIT_D_CREDITS = "init_d_credits";
 
     private static final String[] KEYS = {
-        KEY_S2W, KEY_FASTCHARGE, KEY_IPHONE5, KEY_HALFBREED
+        KEY_S2W, KEY_D2W, KEY_ECOMODE, KEY_FASTCHARGE, KEY_IPHONE5, KEY_HALFBREED
     };
 
     private HashMap<String, String> mShellVariables;
