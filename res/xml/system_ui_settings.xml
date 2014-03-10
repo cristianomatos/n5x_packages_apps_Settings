@@ -40,6 +40,11 @@
             android:summary="@string/disable_fc_notifications_summary" />
 
     <PreferenceScreen
+        android:key="recents_panel"
+        android:fragment="com.android.settings.n5x.RecentsPanelSettings"
+        android:title="@string/recents_panel_settings_title" />
+
+    <PreferenceScreen
 	android:key="lcd_density_setup"
         android:fragment="com.android.settings.n5x.DensityChanger"
         android:title="@string/lcd_density_title" />
