@@ -58,7 +58,7 @@ public class InputMethodsSettings extends SettingsPreferenceFragment implements
         mDisableFullscreenKeyboard =
             (CheckBoxPreference) findPreference(PREF_DISABLE_FULLSCREEN_KEYBOARD);
         mDisableFullscreenKeyboard.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.DISABLE_FULLSCREEN_KEYBOARD, 0) == 1);
+                Settings.System.DISABLE_FULLSCREEN_KEYBOARD, 1) == 1);
         mDisableFullscreenKeyboard.setOnPreferenceChangeListener(this);
 
         mKeyboardRotationToggle = (CheckBoxPreference) findPreference(KEYBOARD_ROTATION_TOGGLE);
