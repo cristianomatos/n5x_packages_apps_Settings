@@ -45,12 +45,14 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     // Custom Navigation Bar Height Key
     private static final String KEY_NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
+    private static final String PREF_DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
 
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
     // Custom Navigation Bar Height Preference
     private ListPreference mNavButtonsHeight;
     private CheckBoxPreference mNavigationBarLeftPref;
+    CheckBoxPreference mDisableFC;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,12 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
 
         addPreferencesFromResource(R.xml.system_ui_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
+
+        // Disable FC Dialog
+	mDisableFC = (CheckBoxPreference) findPreference(PREF_DISABLE_FC_NOTIFICATIONS);
+        mDisableFC.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
+                Settings.System.DISABLE_FC_NOTIFICATIONS, true));
+
         PreferenceCategory expandedCategory =
                 (PreferenceCategory) findPreference(CATEGORY_EXPANDED_DESKTOP);
 
@@ -135,6 +143,17 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         }
 
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+	if (preference == mDisableFC) {
+            Settings.System.putBoolean(mContext.getContentResolver(),
+                    Settings.System.DISABLE_FC_NOTIFICATIONS,
+                    ((CheckBoxPreference) preference).isChecked());
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private void updateExpandedDesktop(int value) {

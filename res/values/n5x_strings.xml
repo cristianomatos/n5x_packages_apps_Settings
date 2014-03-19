@@ -317,4 +317,8 @@
     <string name="show_enter_key_title">Show enter key</string>
     <string name="show_enter_key_summary">Force keyboard to show enter instead of emoticon key</string>
 
+    <!-- Text for forcing close notifications -->
+    <string name="disable_fc_notifications_title">Disable FC Notifications</string>
+    <string name="disable_fc_notifications_summary">This will hide all force close notifications</string>
+
 </resources>
