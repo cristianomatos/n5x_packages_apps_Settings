@@ -64,7 +64,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         // Disable FC Dialog
 	mDisableFC = (CheckBoxPreference) findPreference(PREF_DISABLE_FC_NOTIFICATIONS);
         mDisableFC.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
-                Settings.System.DISABLE_FC_NOTIFICATIONS, true));
+                Settings.System.DISABLE_FC_NOTIFICATIONS, false));
 
         PreferenceCategory expandedCategory =
                 (PreferenceCategory) findPreference(CATEGORY_EXPANDED_DESKTOP);
