@@ -271,32 +271,32 @@
     <string name="noti_reminder_interval_3dot5s">3.5 second</string>
     <string name="noti_reminder_interval_4s">4 seconds</string>
 
-    <!-- Init.d -->
-    <string name="header_summary_init_d">@null</string>
-    <string name="init_d_title">N5X Init.d</string>
-    <string name="app_name">N5X Init.d Conf</string>
-    <string name="pt_general">General</string>
-    <string name="pt_s2w">Sweep-to-Wake</string>
-    <string name="ps_s2w">Enable/disable sweep-to-wake screen</string>
-    <string name="pt_d2w">Double-tap to Wake</string>
-    <string name="ps_d2w">Enable/disable double-tap to wake screen</string>
-    <string name="pt_ecomode">Power Key suspend</string>
-    <string name="ps_ecomode">Power Button disable S2W/D2W module</string>
-    <string name="pt_fastcharge">USB Fastcharge</string>
-    <string name="ps_fastcharge">Enable/disable USB Fastcharge</string>
-    <string name="pt_iphone5">iPhone 5 Color Profile</string>
-    <string name="ps_iphone5">Enable/disable iPhone 5 Colors</string>
-    <string name="pt_halfbreed">Halfbreed Color Profile</string>
-    <string name="ps_halfbreed">Enable/disable Halfbreed Colors</string>
-    <string name="pt_init_d_credits">Modified by:</string>
-    <string name="ps_init_d_credits">AndersonAragao</string>
-    <string name="dt_init_d_error">Init.d error</string>
-    <string name="dm_init_d_error">It looks like init.d isn\'t setup properly. Please contact your ROM developer.</string>
-    <string name="db_exit">Exit</string>
+     <!-- Init.d -->
+      <string name="header_summary_init_d">@null</string>
+      <string name="init_d_title">Init.d Controller</string>
+      <string name="app_name">N5X Init.d Controller</string>
+      <string name="pt_general">General</string>
+      <string name="pt_s2w">Sweep-to-Wake</string>
+      <string name="ps_s2w">Enable/disable sweep-to-wake screen</string>
+      <string name="pt_d2w">Double-tap to Wake</string>
+      <string name="ps_d2w">Enable/disable double-tap to wake screen</string>
+      <string name="pt_ecomode">Power Key suspend</string>
+      <string name="ps_ecomode">Power Button disable S2W/D2W module</string>
+      <string name="pt_fastcharge">USB Fastcharge</string>
+      <string name="ps_fastcharge">Enable/disable USB Fastcharge</string>
+      <string name="pt_iphone5">iPhone 5 Color Profile</string>
+      <string name="ps_iphone5">Enable/disable iPhone 5 Colors</string>
+      <string name="pt_halfbreed">Halfbreed Color Profile</string>
+      <string name="ps_halfbreed">Enable/disable Halfbreed Colors</string>
+      <string name="pt_init_d_credits">Modified by:</string>
+      <string name="ps_init_d_credits">AndersonAragao</string>
+      <string name="dt_init_d_error">Init.d error</string>
+      <string name="dm_init_d_error">It looks like init.d isn\'t setup properly. Please contact your ROM developer.</string>
+      <string name="db_exit">Exit</string>
 
-    <!-- Init.d Settings : Warning dialog -->
-    <string name="init_warning_title">Init.d Script Enabler</string>
-    <string name="init_warning">Here you can enable or disable init.d tweaks that are built into the system. If you are enabling a color profile, please enable only one! After choosing your tweaks, please reboot your phone to make the changes!</string>
+      <!-- Init.d Settings : Warning dialog -->
+      <string name="init_warning_title">Init.d Controller</string>
+      <string name="init_warning">Here you can enable or disable init.d tweaks that are built into the system. If you are enabling a color profile, please enable only one! After choosing your tweaks, please reboot your phone to make the changes!</string>
 
     <!-- QuickSettings: Smart Pulldown -->
     <string name="smart_pulldown_title">Smart pulldown</string>
@@ -318,7 +318,7 @@
     <string name="show_enter_key_summary">Force keyboard to show enter instead of emoticon key</string>
 
     <!-- Text for forcing close notifications -->
-    <string name="disable_fc_notifications_title">Disable FC Notifications</string>
+    <string name="disable_fc_notifications_title">Disable FC dialogs</string>
     <string name="disable_fc_notifications_summary">This will hide all force close notifications</string>
 
     <!-- On-The-Go -->
