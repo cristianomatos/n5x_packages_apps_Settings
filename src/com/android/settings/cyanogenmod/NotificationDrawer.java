@@ -59,6 +59,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     private ListPreference mCollapseOnDismiss;
 
     CheckBoxPreference mReminder;
+    ListPreference mReminderInterval;
     ListPreference mReminderMode;
     RingtonePreference mReminderRingtone;
 
