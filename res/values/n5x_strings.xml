@@ -5,6 +5,8 @@
     <!-- Halo -->
     <string name="halo_settings_title">Halo</string>
     <string name="halo_behavior_title">Halo Behavior</string>
+    <string name="halo_enabled_title">Enable HALO</string>
+    <string name="halo_enabled_summary">Completely enable or disable HALO</string>
     <string name="halo_hide_title">Hide Halo after activity</string>
     <string name="halo_hide_summary">Halo will appear for incoming tasks and scroll out of sight after a while</string>
     <string name="halo_state_title">Halo policy</string>
@@ -13,6 +15,8 @@
     <string name="halo_state_white">White list</string>
     <string name="halo_pause_title">Pause active app</string>
     <string name="halo_pause_summary">When opening an app with Halo the underlying app will get paused</string>
+    <string name="halo_ninja_title">Ninja mode</string>
+    <string name="halo_ninja_summary">Halo will disappear completely when empty</string>
     <string name="halo_notification_msgbox_title">Enable message pop-up</string>
     <string name="halo_notification_msgbox_summary">Show message box for incoming notifications</string>
     <string name="halo_unlock_ping_title">Ping on unlock</string>
