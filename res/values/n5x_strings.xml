@@ -336,4 +336,8 @@
     <string name="recent_clear_all_button_location_bottom_left">Bottom left</string>
     <string name="recent_clear_all_button_location_bottom_right">Bottom right</string>
 
+    <!--Lockscreen See Through-->
+    <string name="see_through_title">Lockscreen Blur</string>
+    <string name="see_through_summary">Blurs and display the content behind your lockscreen, your data may be visible to those around you</string>
+
 </resources>
