@@ -368,4 +368,11 @@
     <!-- About phone screen,  setting option name -->
     <string name="n5x_mod_version">Nexus 5 Experience Release</string>
 
+    <!-- show network speed -->
+    <string name="show_network_speed_title">Network speed</string>
+    <string name="show_network_speed_summary">Show network speed in status bar</string>
+    <string name="status_bar_traffic_style_hidden">Hide</string>
+    <string name="status_bar_traffic_style_rx">Display download only</string>
+    <string name="status_bar_traffic_style_rxtx">Display download and upload</string>
+
 </resources>
