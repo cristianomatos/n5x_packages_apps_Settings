@@ -94,6 +94,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String WALLPAPER_NAME = "lockscreen_wallpaper";
     private static final String LOCKSCREEN_BACKGROUND_STYLE = "lockscreen_background_style";
     private static final String LOCKSCREEN_BACKGROUND_COLOR_FILL = "lockscreen_background_color_fill";
+    private static final String LOCKSCREEN_POWER_MENU = "lockscreen_power_menu";
 
     private static final int REQUEST_PICK_WALLPAPER = 201;
     private static final int COLOR_FILL = 0;
@@ -111,6 +112,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
     private CheckBoxPreference mSeeThrough;
+    private CheckBoxPreference mLockScreenPowerMenu;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockUtils;
@@ -147,6 +149,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         // lockscreen see through
         mSeeThrough = (CheckBoxPreference) findPreference(KEY_SEE_TRHOUGH);
+
+        mLockScreenPowerMenu = (CheckBoxPreference) findPreference(LOCKSCREEN_POWER_MENU);
+        if (mLockScreenPowerMenu != null) {
+            mLockScreenPowerMenu.setChecked(Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.LOCK_SCREEN_POWER_MENU, 1) == 1);
+        }
 
         // Enable or disable lockscreen widgets based on policy
         checkDisabledByPolicy(mEnableKeyguardWidgets,
@@ -187,6 +195,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_BACKGROUND_COLOR, 0x00000000)));
 
 	updateVisiblePreferences();
+    }
+
+    private boolean isToggled(Preference pref) {
+        return ((CheckBoxPreference) pref).isChecked();
     }
 
     @Override
@@ -231,6 +243,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 	} else if (preference == mSeeThrough) {
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SEE_THROUGH,
                     mSeeThrough.isChecked() ? 1 : 0);
+        } else if (preference == mLockScreenPowerMenu) {
+            Settings.Secure.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.Secure.LOCK_SCREEN_POWER_MENU, isToggled(preference) ? 1 : 0);
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
