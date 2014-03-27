@@ -43,6 +43,17 @@
         android:entries="@array/entries_status_bar_signal"
         android:entryValues="@array/values_status_bar_signal" />
 
+    <CheckBoxPreference
+        android:key="status_bar_carrier"
+        android:title="@string/show_status_bar_carrier_title"
+        android:summary="@string/show_status_bar_carrier_summary"
+        android:defaultValue="false" />
+
+    <PreferenceScreen
+        android:key="custom_carrier_label"
+        android:title="@string/custom_carrier_label_title"
+        android:dependency="status_bar_carrier" />
+
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="status_bar_brightness_control"
         android:title="@string/status_bar_toggle_brightness"
