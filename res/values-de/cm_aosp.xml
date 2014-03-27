@@ -15,30 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-<string-array name="wifi_countrycode_entries">
-    <item>Estats Units</item>
-    <item>Canadà, Taiwan</item>
-    <item>Alemanya</item>
-    <item>Europa</item>
-    <item>Japan, Rússia</item>
-    <item>Austràlia</item>
-    <item>Xina</item>
-    <item>Corea</item>
-    <item>Turquia</item>
-    <item>Singapur</item>
-    <item>Brasil</item>
-  </string-array>
-  <string-array name="profile_entries">
-    <item>Sí</item>
-    <item>no</item>
-    <item>No sobreescriguis</item>
-  </string-array>
-  <string-array name="profile_connection_entries">
-    <item>Desactiva</item>
-    <item>Activa</item>
-  </string-array>
-  <string-array name="entries_screentimeout_widget">
-    <item>15s | 1m | 5m</item>
-    <item>30s | 2m | 5m</item>
-  </string-array>
+    <string name="intent_sender_data_label"><xliff:g id="data">Daten:</xliff:g></string>
+    <string name="wifi_disabled_association_rejected">Verbindung wurde abgelehnt</string>
 </resources>
