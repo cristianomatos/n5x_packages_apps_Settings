@@ -1868,6 +1868,17 @@
 
         <!-- CyanogenMod activities End -->
 
+	<!-- N5X ACTIVITIES START -->
+        <activity
+            android:name=".n5x.PowerSaverSettings"
+            android:label="@string/power_saver_settings_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SHORTCUT" />
+              </intent-filter>
+        </activity>
+        <!-- N5X ACTIVITIES END -->
+
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
                 android:label="@string/crypt_keeper_encrypt_title">
