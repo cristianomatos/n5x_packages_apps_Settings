@@ -87,6 +87,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_BATTERY_STATUS = "lockscreen_battery_status";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
+    private static final String KEY_DISABLE_FRAME = "lockscreen_disable_frame";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
     private static final String KEY_SEE_TRHOUGH = "see_through";
@@ -110,6 +111,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     private ListPreference mBatteryStatus;
     private CheckBoxPreference mEnableKeyguardWidgets;
+    private CheckBoxPreference mDisableFrame;
     private CheckBoxPreference mEnableCameraWidget;
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mLockScreenPowerMenu;
@@ -136,6 +138,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         // Find preferences
         mEnableKeyguardWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
+
+        mDisableFrame = (CheckBoxPreference) findPreference(KEY_DISABLE_FRAME);
+        mDisableFrame.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_WIDGET_FRAME_ENABLED, 0) == 1);
+        mDisableFrame.setOnPreferenceChangeListener(this);
 
         mBatteryStatus = (ListPreference) findPreference(KEY_BATTERY_STATUS);
         if (mBatteryStatus != null) {
@@ -260,6 +267,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             int index = mBatteryStatus.findIndexOfValue((String) objValue);
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, value);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
+            return true;
+        } else if (preference == mDisableFrame) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_WIDGET_FRAME_ENABLED,
+                    (Boolean) objValue ? 1 : 0);
             return true;
 	} else if (preference == mLockBackground) {
             int index = mLockBackground.findIndexOfValue(String.valueOf(objValue));

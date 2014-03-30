@@ -449,4 +449,7 @@
     <!-- Brightness Slider -->
     <string name="notification_drawer_brightness_slider_title">Brightness Slider</string>
 
+    <!-- Lockscreen Widget Frame -->
+    <string name="lockscreen_widget_frame_title">Disable widget frames</string>
+    <string name="lockscreen_widget_frame_summary">Disable widget background frames</string>
 </resources>
