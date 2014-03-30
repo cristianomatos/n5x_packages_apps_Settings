@@ -452,4 +452,10 @@
     <!-- Lockscreen Widget Frame -->
     <string name="lockscreen_widget_frame_title">Disable widget frames</string>
     <string name="lockscreen_widget_frame_summary">Disable widget background frames</string>
+
+    <!-- Quiet Hours Automatic Switch -->
+    <string name="quiet_hours_auto_title">Follow ringer mode</string>
+    <string name="quiet_hours_auto_silent">Quiet hours will enable when ringer is set to silent</string>
+    <string name="quiet_hours_auto_vibrate">Quiet hours will enable when ringer is set to vibrate or silent</string>
+
 </resources>
