@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
@@ -44,6 +45,8 @@ public class QuietHours extends SettingsPreferenceFragment implements
     private ListPreference mAutoEnable;
     private TimeRangePreference mQuietHoursTimeRange;
     private ListPreference mQuietHoursRinger;
+
+    private SharedPreferences mPrefs;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,9 +84,8 @@ public class QuietHours extends SettingsPreferenceFragment implements
             mQuietHoursRinger.setValue(String.valueOf(muteType));
             mQuietHoursRinger.setSummary(mQuietHoursRinger.getEntry());
             mQuietHoursRinger.setOnPreferenceChangeListener(this);
+            mAutoEnable.setSummary(mAutoEnable.getEntries()[autoMode]);
         }
-
-        mAutoEnable.setSummary(mAutoEnable.getEntries()[autoMode]);
 
         // Remove the notification light setting if the device does not support it
         if (!res.getBoolean(com.android.internal.R.bool.config_intrusiveNotificationLed)) {
@@ -117,9 +119,6 @@ public class QuietHours extends SettingsPreferenceFragment implements
                         enabled = true;
                     }
                 }
-                Settings.System.putInt(resolver, Settings.System.QUIET_HOURS_ENABLED,
-                        enabled ? 1 : 0);
-                mQuietHoursEnabled.setChecked(enabled);
             }
             mAutoEnable.setSummary(mAutoEnable.getEntries()[val]);
             return true;
