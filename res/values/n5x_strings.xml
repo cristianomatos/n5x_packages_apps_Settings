@@ -340,17 +340,6 @@
     <string name="see_through_title">Lockscreen Blur</string>
     <string name="see_through_summary">Blurs and display the content behind your lockscreen, your data may be visible to those around you</string>
 
-    <!-- Lockscreen background -->
-    <string name="lockscreen_background">Background</string>
-    <string name="lockscreen_background_style_title">Lockscreen background style</string>
-    <string name="background_color_fill_title">Background color</string>
-    <string name="background_default">Default style background</string>
-    <string name="background_color_fill">Color fill</string>
-    <string name="background_wallpaper">Custom wallpaper</string>
-    <string name="transparency">Background transparency</string>
-    <string name="background_result_successful">Background changed</string>
-    <string name="background_result_not_successful">Background not changed</string>
-
     <!-- Show carrier label and custom -->
     <string name="show_status_bar_carrier_title">Status bar carrier</string>
     <string name="show_status_bar_carrier_summary">Show carrier in status bar</string>

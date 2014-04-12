@@ -16,46 +16,19 @@
 
 package com.android.settings.cyanogenmod;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.content.ActivityNotFoundException;
 import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.hardware.Camera;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.graphics.Rect;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
-import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
-import android.provider.MediaStore;
 import android.provider.Settings;
-import android.view.Display;
-import android.util.Log;
-import android.util.TypedValue;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.Window;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Toast;
 
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.ChooseLockSettingsHelper;
@@ -63,24 +36,8 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
-
-import java.io.File;
-import java.io.IOException;
-import android.util.Log;
-import android.view.Display;
-import android.view.View;
-import android.provider.MediaStore;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.widget.Toast;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-
 public class LockscreenInterface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-
-    private static final String TAG = "LockscreenInterface";
 
     private static final String LOCKSCREEN_GENERAL_CATEGORY = "lockscreen_general_category";
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
@@ -91,23 +48,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
     private static final String KEY_SEE_TRHOUGH = "see_through";
-    private static final String LOCKSCREEN_BACKGROUND = "lockscreen_background";
-    private static final String WALLPAPER_NAME = "lockscreen_wallpaper";
-    private static final String LOCKSCREEN_BACKGROUND_STYLE = "lockscreen_background_style";
-    private static final String LOCKSCREEN_BACKGROUND_COLOR_FILL = "lockscreen_background_color_fill";
     private static final String LOCKSCREEN_POWER_MENU = "lockscreen_power_menu";
-
-    private static final int REQUEST_PICK_WALLPAPER = 201;
-    private static final int COLOR_FILL = 0;
-    private static final int CUSTOM_IMAGE = 1;
-    private static final int DEFAULT = 2;
-
-    private ColorPickerPreference mLockColorFill;
-    private ListPreference mLockBackground;
-
-    private PreferenceCategory mLockscreenBackground;
-    private File wallpaperImage;
-    private File wallpaperTemporary;
 
     private ListPreference mBatteryStatus;
     private CheckBoxPreference mEnableKeyguardWidgets;
@@ -186,22 +127,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             widgetsCategory.removePreference(
                     findPreference(Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS));
         }
-
-	mLockscreenBackground = (PreferenceCategory) findPreference(LOCKSCREEN_BACKGROUND);
-
-        mLockBackground = (ListPreference) findPreference(LOCKSCREEN_BACKGROUND_STYLE);
-        mLockBackground.setOnPreferenceChangeListener(this);
-        mLockBackground.setValue(Integer.toString(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_BACKGROUND_STYLE, 2)));
-        mLockBackground.setSummary(mLockBackground.getEntry());
-
-        mLockColorFill = (ColorPickerPreference) findPreference(LOCKSCREEN_BACKGROUND_COLOR_FILL);
-        mLockColorFill.setOnPreferenceChangeListener(this);
-        mLockColorFill.setSummary(ColorPickerPreference.convertToARGB(
-                Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_BACKGROUND_COLOR, 0x00000000)));
-
-	updateVisiblePreferences();
     }
 
     private boolean isToggled(Preference pref) {
@@ -229,12 +154,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mBatteryStatus.setValueIndex(batteryStatus);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
         }
-    }
-
-    private Uri getLockscreenExternalUri() {
-        File dir = getActivity().getExternalCacheDir();
-        File wallpaper = new File(dir, WALLPAPER_NAME);
-        return Uri.fromFile(wallpaper);
     }
 
     @Override
@@ -273,18 +192,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     Settings.System.LOCKSCREEN_WIDGET_FRAME_ENABLED,
                     (Boolean) objValue ? 1 : 0);
             return true;
-	} else if (preference == mLockBackground) {
-            int index = mLockBackground.findIndexOfValue(String.valueOf(objValue));
-            preference.setSummary(mLockBackground.getEntries()[index]);
-            return handleBackgroundSelection(index);
-        } else if (preference == mLockColorFill) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(objValue)));
-            preference.setSummary(hex);
-            int color = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_BACKGROUND_COLOR, color);
-            return true;
         }
 
         return false;
@@ -322,111 +229,5 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
      */
     private boolean featureIsDisabled(int feature) {
         return (mDPM.getKeyguardDisabledFeatures(null) & feature) != 0;
-    }
-
-    private void updateVisiblePreferences() {
-        int visible = Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_BACKGROUND_STYLE, 2);
-        if (visible == 0) {
-            mLockscreenBackground.addPreference(mLockColorFill);
-        } else {
-            mLockscreenBackground.removePreference(mLockColorFill);
-        }
-        if (visible == 2) {
-            mLockscreenBackground.addPreference(mSeeThrough);
-        } else {
-            mLockscreenBackground.removePreference(mSeeThrough);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_SEE_THROUGH, 0);
-        }
-    }
-
-    private boolean handleBackgroundSelection(int index) {
-        if (index == COLOR_FILL) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_BACKGROUND_STYLE, 0);
-            updateVisiblePreferences();
-            return true;
-        } else if (index == CUSTOM_IMAGE) {
-            // Used to reset the image when already set
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_BACKGROUND_STYLE, 2);
-            // Launches intent for user to select an image/crop it to set as background
-            Display display = getActivity().getWindowManager().getDefaultDisplay();
-
-            int width = getActivity().getWallpaperDesiredMinimumWidth();
-            int height = getActivity().getWallpaperDesiredMinimumHeight();
-            float spotlightX = (float)display.getWidth() / width;
-            float spotlightY = (float)display.getHeight() / height;
-
-            Intent intent = new Intent(Intent.ACTION_PICK,
-                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            intent.setType("image/*");
-            intent.putExtra("crop", "true");
-            intent.putExtra("scale", true);
-            intent.putExtra("scaleUpIfNeeded", true);
-            intent.putExtra("aspectX", width);
-            intent.putExtra("aspectY", height);
-            intent.putExtra("outputX", width);
-            intent.putExtra("outputY", height);
-            intent.putExtra("spotlightX", spotlightX);
-            intent.putExtra("spotlightY", spotlightY);
-            intent.putExtra("outputFormat", Bitmap.CompressFormat.PNG.toString());
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, getLockscreenExternalUri());
-
-            startActivityForResult(intent, REQUEST_PICK_WALLPAPER);
-        } else if (index == DEFAULT) {
-            // Sets background to default
-            Settings.System.putInt(getContentResolver(),
-                            Settings.System.LOCKSCREEN_BACKGROUND_STYLE, 2);
-            updateVisiblePreferences();
-            return true;
-        }
-        return false;
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_PICK_WALLPAPER) {
-            FileOutputStream wallpaperStream = null;
-            try {
-                wallpaperStream = getActivity().openFileOutput(WALLPAPER_NAME,
-                        Context.MODE_WORLD_READABLE);
-
-            } catch (FileNotFoundException e) {
-                return; // NOOOOO
-            }
-            Uri selectedImageUri = getLockscreenExternalUri();
-            Bitmap bitmap;
-            if (data != null) {
-                Uri mUri = data.getData();
-                try {
-                    bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),
-                            mUri);
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, wallpaperStream);
-
-                    Toast.makeText(getActivity(), getResources().getString(R.string.
-                            background_result_successful), Toast.LENGTH_LONG).show();
-                    Settings.System.putInt(getContentResolver(),
-                            Settings.System.LOCKSCREEN_BACKGROUND_STYLE, 1);
-                    updateVisiblePreferences();
-
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                try {
-                    bitmap = BitmapFactory.decodeFile(selectedImageUri.getPath());
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, wallpaperStream);
-                } catch (NullPointerException npe) {
-                    Log.e(TAG, "SeletedImageUri was null.");
-                    Toast.makeText(getActivity(), getResources().getString(R.string.
-                            background_result_not_successful), Toast.LENGTH_LONG).show();
-                    super.onActivityResult(requestCode, resultCode, data);
-                    return;
-                }
-            }
-        }
     }
 }

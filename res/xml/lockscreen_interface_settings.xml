@@ -63,6 +63,11 @@
             android:summary="@string/ad_settings_summary" />
 
         <CheckBoxPreference
+            android:key="see_through"
+            android:title="@string/see_through_title"
+            android:summary="@string/see_through_summary" />
+
+        <CheckBoxPreference
             android:key="lockscreen_power_menu"
             android:title="@string/lockscreen_power_menu_title"
             android:summary="@string/lockscreen_power_menu_summary" />
@@ -100,32 +105,6 @@
             android:key="lockscreen_disable_frame"
             android:title="@string/lockscreen_widget_frame_title"
             android:summary="@string/lockscreen_widget_frame_summary" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="lockscreen_background"
-        android:title="@string/lockscreen_background">
-
-        <ListPreference
-            android:key="lockscreen_background_style"
-            android:persistent="false"
-            android:dialogTitle="@string/lockscreen_background_style_title"
-            android:title="@string/lockscreen_background_style_title"
-            android:entries="@array/lockscreen_background_entries"
-            android:entryValues="@array/lockscreen_background_values" />
-
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="lockscreen_background_color_fill"
-            android:title="@string/background_color_fill_title"
-            android:defaultValue="0xff000000"
-            alphaSlider="true" />
-
-	<CheckBoxPreference
-            android:key="see_through"
-            android:title="@string/see_through_title"
-            android:summary="@string/see_through_summary"
-            android:defaultValue="false"/>
 
     </PreferenceCategory>
 </PreferenceScreen>
