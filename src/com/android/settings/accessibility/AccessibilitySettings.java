@@ -110,6 +110,8 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
             "recent_panel_lefty_mode";
     private static final String RECENT_PANEL_SCALE =
             "recent_panel_scale";
+    private static final String RECENT_PANEL_EXPANDED_MODE =
+	    "recent_panel_expanded_mode";
 
     // Extras passed to sub-fragments.
     static final String EXTRA_PREFERENCE_KEY = "preference_key";
@@ -208,6 +210,7 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
     private PreferenceScreen mGlobalGesturePreferenceScreen;
     private CheckBoxPreference mRecentPanelLeftyMode;
     private ListPreference mRecentPanelScale;
+    private ListPreference mRecentPanelExpandedMode;
 
     private int mLongPressTimeoutDefault;
 
@@ -263,6 +266,11 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.RECENT_PANEL_GRAVITY,
                     ((Boolean) newValue) ? Gravity.LEFT : Gravity.RIGHT);
+            return true;
+        } else if (preference == mRecentPanelExpandedMode) {
+            int value = Integer.parseInt((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.RECENT_PANEL_EXPANDED_MODE, value);
             return true;
         }
         return false;
@@ -434,6 +442,12 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
         mRecentPanelScale =
                 (ListPreference) findPreference(RECENT_PANEL_SCALE);
         mRecentPanelScale.setOnPreferenceChangeListener(this);
+
+        mRecentPanelExpandedMode = (ListPreference) findPreference(RECENT_PANEL_EXPANDED_MODE);
+        mRecentPanelExpandedMode.setOnPreferenceChangeListener(this);
+        final int recentExpandedMode = Settings.System.getInt(getContentResolver(),
+                Settings.System.RECENT_PANEL_EXPANDED_MODE, 0);
+        mRecentPanelExpandedMode.setValue(recentExpandedMode + "");
     }
 
     private void updateAllPreferences() {
