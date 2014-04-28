@@ -21,10 +21,13 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.CompoundButton;
@@ -39,14 +42,20 @@ public class PowerSaverSettings extends SettingsPreferenceFragment implements
         CompoundButton.OnCheckedChangeListener {
 
     private static final String TAG = "PowerSaverSettings";
-    private static final String KEY_TOGGLES_CPU = "power_saver_toggles_cpu";
+    private static final String KEY_PERFORMANCE_CATEGORY = "power_saver_category_performance";
+    private static final String KEY_TOGGLES_CPU_PROFILE = "power_saver_toggles_cpu_profile";
+    private static final String KEY_TOGGLES_CPU_GOVERNOR = "power_saver_toggles_cpu_governor";
     private static final String KEY_TOGGLES_MOBILE_DATA = "power_saver_toggles_mobile_data";
     private static final String KEY_TOGGLES_GPS = "power_saver_toggles_gps";
+    private static final String KEY_TOGGLES_NOTIFICATION = "power_saver_toggles_notification";
     private ContentResolver resolver;
     private Switch mEnabledSwitch;
-    private CheckBoxPreference mTogglesCPU;
+    private CheckBoxPreference mTogglesCPUProfile;
+    private CheckBoxPreference mTogglesCPUGovernor;
     private CheckBoxPreference mTogglesMobileData;
     private CheckBoxPreference mTogglesGPS;
+    private CheckBoxPreference mTogglesNotification;
+    private PreferenceCategory mPerformanceCategory;
     private PreferenceScreen prefSet;
     private Activity mActivity;
 
@@ -73,24 +82,43 @@ public class PowerSaverSettings extends SettingsPreferenceFragment implements
         mEnabledSwitch.setOnCheckedChangeListener(this);
 
         prefSet = getPreferenceScreen();
-        mTogglesCPU = (CheckBoxPreference) prefSet.findPreference(KEY_TOGGLES_CPU);
+        mPerformanceCategory = (PreferenceCategory) prefSet.findPreference(KEY_PERFORMANCE_CATEGORY);
+
+        mTogglesCPUProfile = (CheckBoxPreference) prefSet.findPreference(KEY_TOGGLES_CPU_PROFILE);
+        String perfProfileProp = getString(com.android.internal.R.string.config_perf_profile_prop);
+        if (mTogglesCPUProfile != null && TextUtils.isEmpty(perfProfileProp)) {
+            mPerformanceCategory.removePreference(mTogglesCPUProfile);
+            mTogglesCPUProfile = null;
+        } else {
+            mTogglesCPUProfile.setChecked(Settings.System.getInt(resolver, Settings.System.POWER_SAVER_CPU_PROFILE, 0) != 0);
+        }
+
+        mTogglesCPUGovernor = (CheckBoxPreference) prefSet.findPreference(KEY_TOGGLES_CPU_GOVERNOR);
         /*
          * Governor Some systems might not use governors
          */
         if (!Utils.fileExists(Processor.GOV_LIST_FILE) || !Utils.fileExists(Processor.GOV_FILE)
                 || Utils.fileReadOneLine(Processor.GOV_FILE) == null
                 || Utils.fileReadOneLine(Processor.GOV_LIST_FILE) == null) {
-            prefSet.removePreference(mTogglesCPU);
+            mPerformanceCategory.removePreference(mTogglesCPUGovernor);
+            mTogglesCPUGovernor = null;
         } else {
-            mTogglesCPU.setChecked(Settings.System.getInt(resolver,
-                    Settings.System.POWER_SAVER_CPU, 1) != 0);
+            mTogglesCPUGovernor.setChecked(Settings.System.getInt(resolver,
+                    Settings.System.POWER_SAVER_CPU_GOVERNOR, 1) != 0);
         }
+        if (mTogglesCPUGovernor == null && mTogglesCPUProfile == null) {
+            prefSet.removePreference(mPerformanceCategory);
+        }
+
         mTogglesMobileData = (CheckBoxPreference) prefSet.findPreference(KEY_TOGGLES_MOBILE_DATA);
         mTogglesMobileData.setChecked(Settings.System.getInt(resolver,
                 Settings.System.POWER_SAVER_MOBILE_DATA, 0) != 0);
         mTogglesGPS = (CheckBoxPreference) prefSet.findPreference(KEY_TOGGLES_GPS);
         mTogglesGPS.setChecked(Settings.System.getInt(resolver,
                 Settings.System.POWER_SAVER_GPS, 0) != 0);
+        mTogglesNotification = (CheckBoxPreference) prefSet.findPreference(KEY_TOGGLES_NOTIFICATION);
+        mTogglesNotification.setChecked(Settings.System.getInt(resolver,
+                Settings.System.POWER_SAVER_NOTIFICATION, 1) != 0);
         setPrefsEnabledState(powerSaverEnabled);
     }
 
@@ -112,9 +140,15 @@ public class PowerSaverSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mTogglesCPU) {
-            Settings.System.putInt(resolver, Settings.System.POWER_SAVER_CPU,
-                    mTogglesCPU.isChecked() ? 1 : 0);
+        if (preference == mTogglesCPUProfile) {
+            String [] pwrsvValue = getResources().getStringArray(com.android.internal.R.array.perf_profile_values);
+            Settings.System.putString(resolver, Settings.System.PERFORMANCE_PROFILE,
+                    mTogglesCPUProfile.isChecked() ? pwrsvValue[0] : pwrsvValue[1]);
+            Settings.System.putInt(resolver, Settings.System.POWER_SAVER_CPU_PROFILE,
+                    mTogglesCPUProfile.isChecked() ? 1 : 0);
+        } else if (preference == mTogglesCPUGovernor) {
+            Settings.System.putInt(resolver, Settings.System.POWER_SAVER_CPU_GOVERNOR,
+                    mTogglesCPUGovernor.isChecked() ? 1 : 0);
         } else if (preference == mTogglesMobileData) {
             Settings.System.putInt(resolver, Settings.System.POWER_SAVER_MOBILE_DATA,
                     mTogglesMobileData.isChecked() ? 1 : 0);
@@ -122,9 +156,18 @@ public class PowerSaverSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver, Settings.System.POWER_SAVER_GPS,
                     mTogglesGPS.isChecked() ? 1 : 0);
         }
-        Intent intent = new Intent("android.intent.action.POWER_SAVER_SERVICE_UPDATE");
-        mActivity.sendBroadcast(intent);
-        Log.i(TAG, "android.intent.action.POWER_SAVER_SERVICE_UPDATE");
+
+        if (preference == mTogglesNotification) {
+            Settings.System.putInt(resolver, Settings.System.POWER_SAVER_NOTIFICATION,
+                    mTogglesNotification.isChecked() ? 1 : 0);
+            Intent intent = new Intent("android.intent.action.POWER_SAVER_NOTIFICATION");
+            mActivity.sendBroadcast(intent);
+        } else {
+            Intent intent = new Intent("android.intent.action.POWER_SAVER_SERVICE_UPDATE");
+            mActivity.sendBroadcast(intent);
+        }
+
+        //Log.i(TAG, "android.intent.action.POWER_SAVER_SERVICE_UPDATE");
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
@@ -132,15 +175,14 @@ public class PowerSaverSettings extends SettingsPreferenceFragment implements
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         Settings.System.putInt(resolver, Settings.System.POWER_SAVER_ENABLED, isChecked ? 1 : 0);
         setPrefsEnabledState(isChecked);
-        Intent service = (new Intent()).setClassName("com.android.systemui",
-                "com.android.systemui.powersaver.PowerSaverService");
+        Intent service = new Intent().setClassName("com.android.systemui", "com.android.systemui.powersaver.PowerSaverService");
         if (isChecked) {
             mActivity.stopService(service);
             mActivity.startService(service);
         } else {
             mActivity.stopService(service);
         }
-        Log.i(TAG, String.valueOf("PowerSaverService Status: " + String.valueOf(isChecked)));
+        //Log.i(TAG, String.valueOf("PowerSaverService Status: " + String.valueOf(isChecked)));
     }
 
 }

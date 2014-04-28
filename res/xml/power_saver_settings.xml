@@ -17,19 +17,25 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:key="power_saver_toggles_performance_key"
+        android:key="power_saver_category_performance"
         android:title="@string/power_saver_toggles_performance_title">
 
         <CheckBoxPreference
-            android:key="power_saver_toggles_cpu"
-            android:title="@string/power_saver_toggles_cpu_title"
-            android:summary="@string/power_saver_toggles_cpu_summary"
+            android:key="power_saver_toggles_cpu_profile"
+            android:title="@string/power_saver_toggles_cpu_profile_title"
+            android:summary="@string/power_saver_toggles_cpu_profile_summary"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="power_saver_toggles_cpu_governor"
+            android:title="@string/power_saver_toggles_cpu_governor_title"
+            android:summary="@string/power_saver_toggles_cpu_governor_summary"
             android:defaultValue="true" />
 
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="power_saver_toggles_mobile_key"
+        android:key="power_saver_category_mobile"
         android:title="@string/power_saver_toggles_mobile_title">
 
         <CheckBoxPreference
@@ -41,7 +47,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="power_saver_toggles_location_key"
+        android:key="power_saver_category_location"
         android:title="@string/power_saver_toggles_location_title">
 
         <CheckBoxPreference
@@ -49,6 +55,18 @@
             android:title="@string/power_saver_toggles_gps_title"
             android:summary="@string/power_saver_toggles_gps_summary"
             android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="power_saver_category_other"
+        android:title="@string/power_saver_toggles_other_title">
+
+        <CheckBoxPreference
+            android:key="power_saver_toggles_notification"
+            android:title="@string/power_saver_toggles_notification_title"
+            android:summary="@string/power_saver_toggles_notification_summary"
+            android:defaultValue="true" />
 
     </PreferenceCategory>
 
