@@ -378,7 +378,7 @@
     <string name="status_bar_traffic_style_rxtx">Display download and upload</string>
 
     <!-- Powersaver settings -->
-    <string name="power_saver_settings_title">Save power</string>
+    <string name="power_saver_settings_title">Power Saver</string>
     <string name="power_saver_settings_summary">Optimize battery life</string>
     <string name="power_saver_toggles_mobile_title">Mobile networks</string>
     <string name="power_saver_toggles_location_title">Location</string>
