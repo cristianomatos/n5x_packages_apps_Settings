@@ -470,4 +470,11 @@
     <string name="quiet_hours_auto_silent">Quiet hours will enable when ringer is set to silent</string>
     <string name="quiet_hours_auto_vibrate">Quiet hours will enable when ringer is set to vibrate or silent</string>
 
+    <!--Notification category-->
+    <string name="notification_category">Notifications</string>
+
+    <!--Notification peek-->
+    <string name="notification_peek_title">Notification peek</string>
+    <string name="notification_peek_summary">Show latest notification after picking up your device</string>
+
 </resources>

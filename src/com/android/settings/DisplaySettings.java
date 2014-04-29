@@ -30,6 +30,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.ContentObserver;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
@@ -69,6 +70,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_ADAPTIVE_BACKLIGHT = "adaptive_backlight";
     private static final String KEY_ADVANCED_DISPLAY_SETTINGS = "advanced_display_settings";
     private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
+    private static final String KEY_PEEK = "notification_peek";
 
     private static final String CATEGORY_LIGHTS = "lights_prefs";
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
@@ -85,6 +87,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mWakeWhenPluggedOrUnplugged;
     private CheckBoxPreference mScreenOffAnimation;
     private ListPreference mScreenAnimationStylePreference;
+    private CheckBoxPreference mNotificationPeek;
 
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
@@ -157,6 +160,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mTapToWake = null;
         }
 
+        mNotificationPeek = (CheckBoxPreference) findPreference(KEY_PEEK);
+        mNotificationPeek.setPersistent(false);
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_ADVANCED_DISPLAY_SETTINGS);
@@ -424,6 +429,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         updateScreenSaverSummary();
         updateLightPulseSummary();
         updateBatteryPulseSummary();
+        updatePeekCheckbox();
     }
 
     private void updateScreenSaverSummary() {
@@ -471,6 +477,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         pref.setSummary(getString(R.string.summary_font_size, fontDesc));
     }
 
+    private void updatePeekCheckbox() {
+        boolean enabled = Settings.System.getInt(getContentResolver(),
+                Settings.System.PEEK_STATE, 0) == 1;
+        mNotificationPeek.setChecked(enabled);
+    }
+
     public void writeFontSizePreference(Object objValue) {
         try {
             mCurConfig.fontScale = Float.parseFloat(objValue.toString());
@@ -491,6 +503,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mTapToWake) {
             return TapToWake.setEnabled(mTapToWake.isChecked());
+        } else if (preference == mNotificationPeek) {
+            Settings.System.putInt(getContentResolver(), Settings.System.PEEK_STATE,
+                    mNotificationPeek.isChecked() ? 1 : 0);
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
