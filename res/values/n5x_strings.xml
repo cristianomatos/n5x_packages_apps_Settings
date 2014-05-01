@@ -339,7 +339,7 @@
     <string name="title_tile_onthego">On-The-Go</string>
 
     <!--  Recents clear all -->
-    <string name="recents_panel_settings_title" >Stock recents panel settings</string>
+    <string name="recents_panel_settings_title" >Slim Recents settings</string>
     <string name="show_recent_clear_all_button_title">Show clear all button</string>
     <string name="show_recent_clear_all_button_summary">Show/Hide the clear all button within the Stock recent applications screen</string>
     <string name="recent_clear_all_button_location_title">Clear all button position</string>
