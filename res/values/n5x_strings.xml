@@ -477,6 +477,13 @@
     <string name="notification_peek_title">Notification peek</string>
     <string name="notification_peek_summary">Show latest notification after picking up your device</string>
 
+    <string name="peek_partial_wakelock_time_title">Peek wakelock timeout</string>
+    <string name="peek_partial_wakelock_10seconds">10 seconds (default)</string>
+    <string name="peek_partial_wakelock_20seconds">20 seconds</string>
+    <string name="peek_partial_wakelock_60seconds">1 minute</string>
+    <string name="peek_partial_wakelock_120seconds">2 minutes</string>
+    <string name="peek_partial_wakelock_300seconds">5 minutes</string>
+
     <!-- Lock Gesture settings -->
     <!-- Security & location settings screen, setting option name -->
     <string name="lockgesture_change_lock_pattern_label">Change unlock gesture</string>

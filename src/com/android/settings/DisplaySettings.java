@@ -71,6 +71,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_ADVANCED_DISPLAY_SETTINGS = "advanced_display_settings";
     private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
     private static final String KEY_PEEK = "notification_peek";
+    private static final String KEY_PEEK_PARTIAL_WAKELOCK_TIME = "peek_partial_wakelock_time";
 
     private static final String CATEGORY_LIGHTS = "lights_prefs";
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
@@ -88,6 +89,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mScreenOffAnimation;
     private ListPreference mScreenAnimationStylePreference;
     private CheckBoxPreference mNotificationPeek;
+    private ListPreference mPeekPartialWakelockTime;
 
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
@@ -162,6 +164,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mNotificationPeek = (CheckBoxPreference) findPreference(KEY_PEEK);
         mNotificationPeek.setPersistent(false);
+
+        mPeekPartialWakelockTime = (ListPreference) getPreferenceScreen().findPreference(KEY_PEEK_PARTIAL_WAKELOCK_TIME);
+        int peekWakelockTime = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PEEK_PARTIAL_WAKELOCK_TIME, 10000, UserHandle.USER_CURRENT);
+        mPeekPartialWakelockTime.setValue(String.valueOf(peekWakelockTime));
+        mPeekPartialWakelockTime.setSummary(mPeekPartialWakelockTime.getEntry());
+        mPeekPartialWakelockTime.setOnPreferenceChangeListener(this);
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_ADVANCED_DISPLAY_SETTINGS);
@@ -547,6 +556,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist screen animation style setting", e);
             }
+        } else if (preference == mPeekPartialWakelockTime) {
+            int peekWakelockTime = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                Settings.System.PEEK_PARTIAL_WAKELOCK_TIME,
+                    peekWakelockTime, UserHandle.USER_CURRENT);
+            updatePeekWakelockTimeOptions(objValue);
+            return true;
         }
 
         return true;
@@ -617,5 +633,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             // Hardware abstraction framework not installed
             return false;
         }
+    }
+
+    private void updatePeekWakelockTimeOptions(Object newValue) {
+        int index = mPeekPartialWakelockTime.findIndexOfValue((String) newValue);
+        int value = Integer.valueOf((String) newValue);
+        Settings.Secure.putInt(getActivity().getContentResolver(),
+                Settings.System.PEEK_PARTIAL_WAKELOCK_TIME, value);
+        mPeekPartialWakelockTime.setSummary(mPeekPartialWakelockTime.getEntries()[index]);
     }
 }

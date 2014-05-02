@@ -387,4 +387,21 @@
         <item>2</item>
     </string-array>
 
+    <!-- PEEK pickup timeout -->
+    <string-array name="peek_partial_wakelock_time_values" translatable="false">
+        <item>10000</item>
+        <item>20000</item>
+        <item>60000</item>
+        <item>120000</item>
+        <item>300000</item>
+    </string-array>
+
+    <string-array name="peek_partial_wakelock_time_entries" translatable="false">
+        <item>@string/peek_partial_wakelock_10seconds</item>
+        <item>@string/peek_partial_wakelock_20seconds</item>
+        <item>@string/peek_partial_wakelock_60seconds</item>
+        <item>@string/peek_partial_wakelock_120seconds</item>
+        <item>@string/peek_partial_wakelock_300seconds</item>
+    </string-array>
+
 </resources>
