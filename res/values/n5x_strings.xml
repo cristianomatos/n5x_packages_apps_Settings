@@ -50,7 +50,7 @@
     <string name="ad_enable_summary_on">Active display enabled</string>
     <string name="ad_enable_summary_off">Active display disabled</string>
     <string name="ad_bypass_title">Bypass mode</string>
-    <string name="ad_bypass_summary">Pocket mode will launch the lockscreen when no notifications exist and lockscreen secure enabled</string>
+    <string name="ad_bypass_summary">Pocket mode will launch the locks creen when no notifications exist and lock screen secure enabled</string>
     <string name="ad_text_title">Notification text</string>
     <string name="ad_text_summary">Show the notification text around the ring</string>
     <string name="ad_content_title">Custom notification view</string>
@@ -158,9 +158,9 @@
     <string name="general">General</string>
     <string name="layout">Layout</string>
     <string name="privacy">Privacy</string>
-    <string name="Lockscreen_notifications_header">Lockscreen Notifications</string>
-    <string name="lockscreen_notifications">Lockscreen notifications</string>
-    <string name="lockscreen_notifications_summary">Show pending notifications on lockscreen</string>
+    <string name="Lockscreen_notifications_header">Lock screen Notifications</string>
+    <string name="lockscreen_notifications">Lock screen notifications</string>
+    <string name="lockscreen_notifications_summary">Show pending notifications on lock screen</string>
     <string name="pocket_mode">Pocket mode</string>
     <string name="pocket_mode_summary">Turn screen on and show all notifications when device is pulled out of pocket. Turn screen off when device gets back into pocket.</string>
     <string name="show_always">Show always</string>
@@ -170,7 +170,7 @@
     <string name="hide_non_clearable">Hide non clearable</string>
     <string name="hide_non_clearable_summary">Hide all non clearable notifications</string>
     <string name="dismiss_all">Allow dismissing all notifications</string>
-    <string name="dismiss_all_summary">Allow dismissing even non clearable notifications. Of course, they\'re just hidden from lockscreen and not from the notification panel.</string>
+    <string name="dismiss_all_summary">Allow dismissing even non clearable notifications. Of course, they\'re just hidden from lock screen and not from the notification panel.</string>
     <string name="expanded_view">Expanded notification view</string>
     <string name="expanded_view_summary">Show notifications expanded when possible</string>
     <string name="force_expanded_view">Force expanded view</string>
@@ -183,7 +183,7 @@
     <string name="privacy_mode">Privacy Mode</string>
     <string name="privacy_mode_summary">Disables notifications from beeing shown and dismissed. This way, you just see the icons of your notifications.</string>
     <string name="excluded_apps_title">Excluded applications</string>
-    <string name="excluded_apps_summary">Excluded applications will not show up as lockscreen notifications</string>
+    <string name="excluded_apps_summary">Excluded applications will not show up as lock screen notifications</string>
     <string name="notification_color">Notification background color</string>
 
     <!-- LCD Density -->
@@ -350,8 +350,8 @@
     <string name="recent_clear_all_button_location_bottom_right">Bottom right</string>
 
     <!--Lockscreen See Through-->
-    <string name="see_through_title">Lockscreen Blur</string>
-    <string name="see_through_summary">Blurs and display the content behind your lockscreen, your data may be visible to those around you</string>
+    <string name="see_through_title">Lock screen Blur</string>
+    <string name="see_through_summary">Blurs and display the content behind your lock screen, your data may be visible to those around you</string>
 
     <!-- Show carrier label and custom -->
     <string name="show_status_bar_carrier_title">Status bar carrier</string>
