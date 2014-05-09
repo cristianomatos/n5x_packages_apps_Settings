@@ -42,7 +42,7 @@
             android:key="pie_show_snap"
             android:title="@string/pie_show_snap_title"
             android:summary="@string/pie_show_snap_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="pie_snap_color"
