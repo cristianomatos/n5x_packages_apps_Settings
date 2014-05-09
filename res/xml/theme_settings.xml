@@ -65,10 +65,8 @@
         android:id="@+id/wallpaper_settings"
         android:title="@string/wallpaper_settings_title"
         android:icon="@drawable/prd_ic_wallpapers">
-       <intent android:action="android.intent.action.MAIN" >
-             <category android:name="cyanogenmod.intent.category.APP_THEMES" />
-             <extra android:name="component_filter" android:value="mods_homescreen"/>
-        </intent>
+        <intent android:targetPackage="com.cyanogenmod.trebuchet"
+                android:targetClass="com.android.launcher3.WallpaperPickerActivity" />
     </Preference>
 
     <!-- Lockscreen Wallpaper -->
