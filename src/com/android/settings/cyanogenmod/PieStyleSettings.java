@@ -54,9 +54,9 @@ public class PieStyleSettings extends SettingsPreferenceFragment implements
     private static final String PREF_PIE_SHOW_BACKGROUND = "pie_show_background";
     private static final String PREF_PIE_SHOW_SNAP = "pie_show_snap";
 
-    private static final float PIE_CONTROL_SIZE_MIN = 0.6f;
+    private static final float PIE_CONTROL_SIZE_MIN = 0.98f;
     private static final float PIE_CONTROL_SIZE_MAX = 1.5f;
-    private static final float PIE_CONTROL_SIZE_DEFAULT = 0.97f;
+    private static final float PIE_CONTROL_SIZE_DEFAULT = 0.98f;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -268,7 +268,7 @@ public class PieStyleSettings extends SettingsPreferenceFragment implements
         mPieTextColor.setNewPreviewColor(intColor);
 
         mShowSnap.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.PIE_SHOW_SNAP, 1) == 1);
+                Settings.System.PIE_SHOW_SNAP, 0) == 1);
 
         mShowText.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.PIE_SHOW_TEXT, 1) == 1);

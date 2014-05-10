@@ -131,7 +131,7 @@
     <string name="navigation_bar_height_28">28dp</string>
     <string name="navigation_bar_height_24">24dp</string>
     <string name="navigation_bar_height_20">20dp</string>
-    <string name="navigation_bar_height_0">hide</string>
+    <string name="navigation_bar_height_0">Hide (Allow PIE in bottom)</string>
 
     <!-- Low battery warning policy -->
     <string name="pref_low_battery_warning_policy_title">Low battery warning</string>
@@ -554,7 +554,7 @@
 
     <!-- Pie Control -->
     <string name="pie_control_category">Pie Control</string>
-    <string name="pie_control_title">SlimPIE</string>
+    <string name="pie_control_title">PIE Control</string>
     <string name="pie_control_summary">Enable pie controls</string>
     <string name="pie_control_size">Navigation size</string>
     <string name="pie_control_trigger_positions">Trigger options</string>
