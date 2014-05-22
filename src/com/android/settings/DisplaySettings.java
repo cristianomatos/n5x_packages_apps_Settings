@@ -563,11 +563,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 Log.e(TAG, "could not persist screen animation style setting", e);
             }
         } else if (preference == mPeekPartialWakelockTime) {
+            int index = mPeekPartialWakelockTime.findIndexOfValue((String) objValue);
             int peekWakelockTime = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
                 Settings.System.PEEK_PARTIAL_WAKELOCK_TIME,
                     peekWakelockTime, UserHandle.USER_CURRENT);
-            updatePeekWakelockTimeOptions(objValue);
+            mPeekPartialWakelockTime.setSummary(mPeekPartialWakelockTime.getEntries()[index]);
             return true;
         }
 
@@ -639,13 +640,5 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             // Hardware abstraction framework not installed
             return false;
         }
-    }
-
-    private void updatePeekWakelockTimeOptions(Object newValue) {
-        int index = mPeekPartialWakelockTime.findIndexOfValue((String) newValue);
-        int value = Integer.valueOf((String) newValue);
-        Settings.Secure.putInt(getActivity().getContentResolver(),
-                Settings.System.PEEK_PARTIAL_WAKELOCK_TIME, value);
-        mPeekPartialWakelockTime.setSummary(mPeekPartialWakelockTime.getEntries()[index]);
     }
 }

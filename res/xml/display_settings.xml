@@ -75,7 +75,6 @@
          <ListPreference
             android:key="peek_partial_wakelock_time"
             android:title="@string/peek_partial_wakelock_time_title"
-            android:persistent="false"
             android:entries="@array/peek_partial_wakelock_time_entries"
             android:entryValues="@array/peek_partial_wakelock_time_values"
             android:dependency="notification_peek" />
