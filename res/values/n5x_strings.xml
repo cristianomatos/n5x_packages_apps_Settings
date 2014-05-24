@@ -559,4 +559,6 @@
     <!-- Status bar Center Clock -->
     <string name="status_bar_center_clock_title">Center clock</string>
 
+    <!-- Restart SystemUI -->
+    <string name="restart_systemui">Restart SystemUI</string>
 </resources>
