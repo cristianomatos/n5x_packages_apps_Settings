@@ -409,4 +409,23 @@
         <item>Load Profile</item>
         <item>Save Profile</item>
     </string-array>
+
+    <!-- Notification PEEK time -->
+    <string-array name="notification_peek_time_values" translatable="false">
+        <item>5000</item>
+        <item>7000</item>
+        <item>10000</item>
+        <item>15000</item>
+        <item>30000</item>
+        <item>45000</item>
+    </string-array>
+
+    <string-array name="notification_peek_time_entries" translatable="false">
+        <item>@string/notification_peek_time_5seconds</item>
+        <item>@string/notification_peek_time_7seconds</item>
+        <item>@string/notification_peek_time_10seconds</item>
+        <item>@string/notification_peek_time_15seconds</item>
+        <item>@string/notification_peek_time_30seconds</item>
+        <item>@string/notification_peek_time_45seconds</item>
+    </string-array>
 </resources>

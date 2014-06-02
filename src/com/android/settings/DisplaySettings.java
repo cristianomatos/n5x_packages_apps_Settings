@@ -75,6 +75,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
     private static final String KEY_PEEK = "notification_peek";
     private static final String KEY_PEEK_PARTIAL_WAKELOCK_TIME = "peek_partial_wakelock_time";
+    private static final String KEY_NOTIFICATION_PEEK_TIME = "notification_peek_time";
 
     private static final String CATEGORY_ADVANCED = "advanced_display_prefs";
     private static final String CATEGORY_DISPLAY = "display_prefs";
@@ -96,6 +97,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String PEEK_APPLICATION = "com.jedga.peek";
     private CheckBoxPreference mNotificationPeek;
     private ListPreference mPeekPartialWakelockTime;
+    private ListPreference mNotificationPeekTime;
 
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
@@ -198,6 +200,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mPeekPartialWakelockTime.setValue(String.valueOf(peekWakelockTime));
         mPeekPartialWakelockTime.setSummary(mPeekPartialWakelockTime.getEntry());
         mPeekPartialWakelockTime.setOnPreferenceChangeListener(this);
+
+        mNotificationPeekTime = (ListPreference) getPreferenceScreen().findPreference(KEY_NOTIFICATION_PEEK_TIME);
+        int NotificationPeekTime = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.NOTIFICATION_PEEK_TIME, 5000, UserHandle.USER_CURRENT);
+        mNotificationPeekTime.setValue(String.valueOf(NotificationPeekTime));
+        mNotificationPeekTime.setSummary(mNotificationPeekTime.getEntry());
+        mNotificationPeekTime.setOnPreferenceChangeListener(this);
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 advancedPrefs, KEY_ADVANCED_DISPLAY_SETTINGS);
@@ -602,6 +611,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 Settings.System.PEEK_PARTIAL_WAKELOCK_TIME,
                     peekWakelockTime, UserHandle.USER_CURRENT);
             mPeekPartialWakelockTime.setSummary(mPeekPartialWakelockTime.getEntries()[index]);
+            return true;
+        } else if (preference == mNotificationPeekTime) {
+            int index = mNotificationPeekTime.findIndexOfValue((String) objValue);
+            int NotificationPeekTime = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                Settings.System.NOTIFICATION_PEEK_TIME,
+                    NotificationPeekTime, UserHandle.USER_CURRENT);
+            mNotificationPeekTime.setSummary(mNotificationPeekTime.getEntries()[index]);
             return true;
         }
 

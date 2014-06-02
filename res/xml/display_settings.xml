@@ -79,6 +79,13 @@
             android:entryValues="@array/peek_partial_wakelock_time_values"
             android:dependency="notification_peek" />
 
+         <ListPreference
+            android:key="notification_peek_time"
+            android:title="@string/notification_peek_time_title"
+            android:entries="@array/notification_peek_time_entries"
+            android:entryValues="@array/notification_peek_time_values"
+            android:dependency="notification_peek" />
+
         <PreferenceCategory
             android:key="lights_prefs"
             android:title="@string/lights_category_title">

@@ -485,6 +485,14 @@
     <string name="peek_partial_wakelock_120seconds">2 minutes</string>
     <string name="peek_partial_wakelock_300seconds">5 minutes</string>
 
+    <string name="notification_peek_time_title">Notification Peek time</string>
+    <string name="notification_peek_time_5seconds">5 seconds (default)</string>
+    <string name="notification_peek_time_7seconds">7 seconds</string>
+    <string name="notification_peek_time_10seconds">10 seconds</string>
+    <string name="notification_peek_time_15seconds">15 seconds</string>
+    <string name="notification_peek_time_30seconds">30 seconds</string>
+    <string name="notification_peek_time_45seconds">45 seconds</string>
+
     <!-- Lock Gesture settings -->
     <!-- Security & location settings screen, setting option name -->
     <string name="lockgesture_change_lock_pattern_label">Change unlock gesture</string>
