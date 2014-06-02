@@ -1307,20 +1307,25 @@ public class InstalledAppDetails extends Fragment
                     })
                     .create();
                 case DLG_BLACKLIST:
-                    AlertDialog dialog = new AlertDialog.Builder(getActivity())
-                            .setTitle(getActivity().getText(R.string.blacklist_button_title))
-                            .setView(mBlacklistDialogView)
-                            .setNeutralButton(R.string.dlg_ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    ((ViewGroup)mBlacklistDialogView.getParent())
-                                            .removeView(mBlacklistDialogView);
-                                }
-                            })
-                            .create();
-                    dialog.setCanceledOnTouchOutside(false);
-                    dialog.setCancelable(false);
-                    return dialog;
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(getActivity().getText(R.string.blacklist_button_title))
+                    .setView(mBlacklistDialogView)
+                    .setPositiveButton(R.string.dlg_ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ((ViewGroup)mBlacklistDialogView.getParent())
+                                    .removeView(mBlacklistDialogView);
+                        }
+                    })
+		//temporary fix to Settings FC when you cancel Blacklist Dialog Box
+                    .setNegativeButton(R.string.dlg_cancel,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            ((ViewGroup)mBlacklistDialogView.getParent())
+                                    .removeView(mBlacklistDialogView);
+                        }
+                    })
+                    .create();
             }
             throw new IllegalArgumentException("unknown id " + id);
         }
