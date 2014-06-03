@@ -75,7 +75,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
     private static final String KEY_PEEK = "notification_peek";
     private static final String KEY_PEEK_PARTIAL_WAKELOCK_TIME = "peek_partial_wakelock_time";
-    private static final String KEY_NOTIFICATION_PEEK_TIME = "notification_peek_time";
+    private static final String KEY_PEEK_NOTIFICATION_TIME = "peek_notification_time";
 
     private static final String CATEGORY_ADVANCED = "advanced_display_prefs";
     private static final String CATEGORY_DISPLAY = "display_prefs";
@@ -201,9 +201,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mPeekPartialWakelockTime.setSummary(mPeekPartialWakelockTime.getEntry());
         mPeekPartialWakelockTime.setOnPreferenceChangeListener(this);
 
-        mNotificationPeekTime = (ListPreference) getPreferenceScreen().findPreference(KEY_NOTIFICATION_PEEK_TIME);
+        mNotificationPeekTime = (ListPreference) getPreferenceScreen().findPreference(KEY_PEEK_NOTIFICATION_TIME);
         int NotificationPeekTime = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.NOTIFICATION_PEEK_TIME, 5000, UserHandle.USER_CURRENT);
+                Settings.System.PEEK_NOTIFICATION_TIME, 5000, UserHandle.USER_CURRENT);
         mNotificationPeekTime.setValue(String.valueOf(NotificationPeekTime));
         mNotificationPeekTime.setSummary(mNotificationPeekTime.getEntry());
         mNotificationPeekTime.setOnPreferenceChangeListener(this);
@@ -616,7 +616,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             int index = mNotificationPeekTime.findIndexOfValue((String) objValue);
             int NotificationPeekTime = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
-                Settings.System.NOTIFICATION_PEEK_TIME,
+                Settings.System.PEEK_NOTIFICATION_TIME,
                     NotificationPeekTime, UserHandle.USER_CURRENT);
             mNotificationPeekTime.setSummary(mNotificationPeekTime.getEntries()[index]);
             return true;
