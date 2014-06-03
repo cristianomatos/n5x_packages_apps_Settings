@@ -80,10 +80,10 @@
             android:dependency="notification_peek" />
 
          <ListPreference
-            android:key="notification_peek_time"
-            android:title="@string/notification_peek_time_title"
-            android:entries="@array/notification_peek_time_entries"
-            android:entryValues="@array/notification_peek_time_values"
+            android:key="peek_notification_time"
+            android:title="@string/peek_notification_time_title"
+            android:entries="@array/peek_notification_time_entries"
+            android:entryValues="@array/peek_notification_time_values"
             android:dependency="notification_peek" />
 
         <PreferenceCategory
