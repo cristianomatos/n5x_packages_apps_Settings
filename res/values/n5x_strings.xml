@@ -564,9 +564,6 @@
     <string name="camera_sounds_title">Camera shutter sound</string>
     <string name="camera_sounds_summary">WARNING: Disabling the camera shutter sound is illegal in some areas!</string>
 
-    <!-- Status bar Center Clock -->
-    <string name="status_bar_center_clock_title">Center clock</string>
-
     <!-- Restart SystemUI -->
     <string name="restart_systemui">Restart SystemUI</string>
 
