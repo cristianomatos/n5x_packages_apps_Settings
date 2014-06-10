@@ -65,7 +65,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
 
     private static final String KEY_DEVICE_ADMIN_CATEGORY = "device_admin_category";
     private static final String KEY_OWNER_INFO_SETTINGS = "owner_info_settings";
-    private static final String KEY_VISIBLE_GESTURE = "visiblegesture";
 
     // Misc Settings
     private static final String KEY_SIM_LOCK = "sim_lock";
@@ -95,9 +94,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private CheckBoxPreference mToggleAppInstallation;
     private DialogInterface mWarnInstallApps;
     private CheckBoxPreference mToggleVerifyApps;
-
-
-    private CheckBoxPreference mVisibleGesture;
 
     private Preference mNotificationAccess;
 
