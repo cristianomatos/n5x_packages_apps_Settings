@@ -45,4 +45,10 @@
         android:layout_marginTop="4dip"
         android:text="@string/hover_blacklist_label" />
 
+    <CheckBox
+        android:id="@+id/halo_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="4dip" />
 </LinearLayout>
