@@ -645,4 +645,12 @@
 
     <!-- HOVER Tile-->
     <string name="title_tile_hover">HOVER</string>
+
+    <!-- HOVER Notification Time -->
+    <string name="hover_long_fadeout_title">HOVER notification time</string>
+    <string name="hover_long_fadeout_3seconds">3 seconds</string>
+    <string name="hover_long_fadeout_5seconds">5 seconds (default)</string>
+    <string name="hover_long_fadeout_10seconds">10 seconds</string>
+    <string name="hover_long_fadeout_15seconds">15 seconds</string>
+    <string name="hover_long_fadeout_20seconds">20 seconds</string>
 </resources>
