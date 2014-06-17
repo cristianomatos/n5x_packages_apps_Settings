@@ -4,26 +4,26 @@
 
     <!-- Halo -->
     <string name="halo_settings_title">Halo</string>
-    <string name="halo_behavior_title">Halo Behavior</string>
+    <string name="halo_behavior_title">HALO Behavior</string>
     <string name="halo_enabled_title">Enable HALO</string>
     <string name="halo_enabled_summary">Completely enable or disable HALO</string>
-    <string name="halo_hide_title">Hide Halo after activity</string>
-    <string name="halo_hide_summary">Halo will appear for incoming tasks and scroll out of sight after a while</string>
-    <string name="halo_state_title">Halo policy</string>
+    <string name="halo_hide_title">Hide HALO after activity</string>
+    <string name="halo_hide_summary">HALO will appear for incoming tasks and scroll out of sight after a while</string>
+    <string name="halo_state_title">HALO policy</string>
     <string name="halo_state_summary">Enables black/white listing notifications</string>
     <string name="halo_state_black">Black list</string>
     <string name="halo_state_white">White list</string>
     <string name="halo_pause_title">Pause active app</string>
-    <string name="halo_pause_summary">When opening an app with Halo the underlying app will get paused</string>
+    <string name="halo_pause_summary">When opening an app with HALO the underlying app will get paused</string>
     <string name="halo_ninja_title">Ninja mode</string>
-    <string name="halo_ninja_summary">Halo will disappear completely when empty</string>
+    <string name="halo_ninja_summary">HALO will disappear completely when empty</string>
     <string name="halo_notification_msgbox_title">Enable message pop-up</string>
     <string name="halo_notification_msgbox_summary">Show message box for incoming notifications</string>
     <string name="halo_unlock_ping_title">Ping on unlock</string>
-    <string name="halo_unlock_ping_summary">Halo will ping when device is unlocked if new notifications were received</string>
+    <string name="halo_unlock_ping_summary">HALO will ping when device is unlocked if new notifications were received</string>
 
-    <string name="halo_size_title">Halo size</string>
-    <string name="halo_size_summary">Defines how big Halo is going to be</string>
+    <string name="halo_size_title">HALO size</string>
+    <string name="halo_size_summary">Defines how big HALO is going to be</string>
     <string name="halo_size_miniscule">Miniscule</string>
     <string name="halo_size_small">Small</string>
     <string name="halo_size_default">Normal (default)</string>
@@ -32,7 +32,7 @@
     <string name="halo_size_monster">Monster</string>
 
     <string name="halo_notification_count_title">Notification count</string>
-    <string name="halo_notification_count_summary">Display notification counts on Halo</string>
+    <string name="halo_notification_count_summary">Display notification counts on HALO</string>
     <string name="halo_notification_count_none">None</string>
     <string name="halo_notification_count_total">Total</string>
     <string name="halo_notification_count_individual">Per app</string>
@@ -50,7 +50,7 @@
     <string name="ad_enable_summary_on">Active display enabled</string>
     <string name="ad_enable_summary_off">Active display disabled</string>
     <string name="ad_bypass_title">Bypass mode</string>
-    <string name="ad_bypass_summary">Pocket mode will launch the locks creen when no notifications exist and lock screen secure enabled</string>
+    <string name="ad_bypass_summary">Pocket mode will launch the lock screen when no notifications exist and lock screen secure enabled</string>
     <string name="ad_text_title">Notification text</string>
     <string name="ad_text_summary">Show the notification text around the ring</string>
     <string name="ad_content_title">Custom notification view</string>
@@ -472,17 +472,17 @@
     <string name="notification_category">Notifications</string>
 
     <!--Notification peek-->
-    <string name="notification_peek_title">Notification peek</string>
+    <string name="notification_peek_title">Notification PEEK</string>
     <string name="notification_peek_summary">Show latest notification after picking up your device</string>
 
-    <string name="peek_partial_wakelock_time_title">Peek wakelock timeout</string>
+    <string name="peek_partial_wakelock_time_title">PEEK wakelock timeout</string>
     <string name="peek_partial_wakelock_10seconds">10 seconds (default)</string>
     <string name="peek_partial_wakelock_20seconds">20 seconds</string>
     <string name="peek_partial_wakelock_60seconds">1 minute</string>
     <string name="peek_partial_wakelock_120seconds">2 minutes</string>
     <string name="peek_partial_wakelock_300seconds">5 minutes</string>
 
-    <string name="peek_notification_time_title">Notification Peek time</string>
+    <string name="peek_notification_time_title">Notification PEEK time</string>
     <string name="peek_notification_time_5seconds">5 seconds (default)</string>
     <string name="peek_notification_time_7seconds">7 seconds</string>
     <string name="peek_notification_time_10seconds">10 seconds</string>
@@ -590,9 +590,9 @@
 
     <!--Blacklist-->
     <string name="blacklist_button_title">Blacklist</string>
-    <string name="peek_blacklist_label">Blacklist from Peek</string>
+    <string name="peek_blacklist_label">Blacklist from PEEK</string>
     <string name="floating_blacklist_label">Blacklist from Floating Mode</string>
-    <string name="hover_blacklist_label">Blacklist from Hover</string>
+    <string name="hover_blacklist_label">Blacklist from HOVER</string>
 
     <!-- Status bar | Clock -->
     <string name="status_bar_clock">Clock and date</string>
