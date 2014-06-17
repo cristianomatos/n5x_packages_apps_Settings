@@ -47,6 +47,7 @@ import static com.android.internal.util.cm.QSConstants.TILE_USER;
 import static com.android.internal.util.cm.QSConstants.TILE_VOLUME;
 import static com.android.internal.util.cm.QSConstants.TILE_WIFI;
 import static com.android.internal.util.cm.QSConstants.TILE_WIFIAP;
+import static com.android.internal.util.cm.QSConstants.TILE_HOVER;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -161,6 +162,9 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_ONTHEGO, R.string.title_tile_onthego,
                 "com.android.systemui:drawable/ic_qs_onthego"));
+        registerTile(new QuickSettingsUtil.TileInfo(
+                TILE_HOVER, R.string.title_tile_hover,
+                "com.android.systemui:drawable/ic_qs_hover_on"));
     }
 
     private static void registerTile(QuickSettingsUtil.TileInfo info) {
