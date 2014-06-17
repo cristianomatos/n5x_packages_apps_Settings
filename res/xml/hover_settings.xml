@@ -25,11 +25,11 @@
         android:summary="@string/hover_active_summary"
         android:defaultValue="false" />
 
-    <com.android.settings.n5x.util.SystemSettingCheckBoxPreference
+    <!--<com.android.settings.n5x.util.SystemSettingCheckBoxPreference
         android:key="hover_hide_button"
         android:title="@string/hover_hide_button_title"
         android:summary="@string/hover_hide_button_summary"
-        android:defaultValue="false" />
+        android:defaultValue="false" />-->
 
     <com.android.settings.n5x.util.SystemSettingCheckBoxPreference
         android:key="hover_require_fullscreen_mode"
