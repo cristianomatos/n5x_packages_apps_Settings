@@ -19,37 +19,37 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/hover_settings_title">
 
-    <CheckBoxPreference
+    <com.android.settings.n5x.util.SystemSettingCheckBoxPreference
         android:key="hover_active"
         android:title="@string/hover_active_title"
         android:summary="@string/hover_active_summary"
         android:defaultValue="false" />
 
-    <CheckBoxPreference
+    <com.android.settings.n5x.util.SystemSettingCheckBoxPreference
         android:key="hover_hide_button"
         android:title="@string/hover_hide_button_title"
         android:summary="@string/hover_hide_button_summary"
         android:defaultValue="false" />
 
-    <CheckBoxPreference
+    <com.android.settings.n5x.util.SystemSettingCheckBoxPreference
         android:key="hover_require_fullscreen_mode"
         android:title="@string/hover_require_fullscreen_mode_title"
         android:summary="@string/hover_require_fullscreen_mode_summary"
         android:defaultValue="false" />
 
-    <CheckBoxPreference
+    <com.android.settings.n5x.util.SystemSettingCheckBoxPreference
         android:key="hover_exclude_non_clearable"
         android:title="@string/hover_exclude_non_clearable_title"
         android:summary="@string/hover_exclude_non_clearable_summary"
         android:defaultValue="false" />
 
-    <CheckBoxPreference
+    <com.android.settings.n5x.util.SystemSettingCheckBoxPreference
         android:key="hover_exclude_low_priority"
         android:title="@string/hover_exclude_low_priority_title"
         android:summary="@string/hover_exclude_low_priority_summary"
         android:defaultValue="false" />
 
-    <CheckBoxPreference
+    <com.android.settings.n5x.util.SystemSettingCheckBoxPreference
         android:key="hover_exclude_topmost"
         android:title="@string/hover_exclude_topmost_title"
         android:summary="@string/hover_exclude_topmost_summary"
