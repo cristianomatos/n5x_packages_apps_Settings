@@ -655,4 +655,8 @@
     <string name="hover_long_fadeout_10seconds">10 seconds</string>
     <string name="hover_long_fadeout_15seconds">15 seconds</string>
     <string name="hover_long_fadeout_20seconds">20 seconds</string>
+
+    <!-- N5X UI Settings -->
+    <string name="n5x_settings_title">Interface</string>
+    <string name="n5x_interface_title">System interface</string>
 </resources>
