@@ -50,17 +50,6 @@
             android:title="@string/lockscreen_buttons_title"
             android:summary="@string/lockscreen_buttons_summary" />
 
-        <PreferenceScreen
-            android:title="@string/lockscreen_notifications"
-            android:fragment="com.android.settings.n5x.LockscreenNotifications"
-            android:summary="@string/lockscreen_notifications_summary" />
-
-        <PreferenceScreen
-            android:key="active_display"	
-            android:fragment="com.android.settings.n5x.ActiveDisplaySettings"	
-            android:title="@string/ad_settings_title"	
-            android:summary="@string/ad_settings_summary" />
-
         <CheckBoxPreference
             android:key="see_through"
             android:title="@string/see_through_title"
@@ -74,6 +63,22 @@
         <CheckBoxPreference
             android:key="lockscreen_modlock_enabled"
             android:title="@string/lockscreen_enable_modlock_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+          android:title="@string/category_lockscreen_notifications" >
+
+        <PreferenceScreen
+            android:title="@string/lockscreen_notifications"
+            android:fragment="com.android.settings.n5x.LockscreenNotifications"
+            android:summary="@string/lockscreen_notifications_settings_summary" />
+
+        <PreferenceScreen
+            android:key="active_display"	
+            android:fragment="com.android.settings.n5x.ActiveDisplaySettings"	
+            android:title="@string/ad_settings_title"	
+            android:summary="@string/ad_settings_summary" />
 
     </PreferenceCategory>
 
