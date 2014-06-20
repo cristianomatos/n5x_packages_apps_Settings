@@ -61,6 +61,13 @@
         android:defaultValue="false" />
 
     <com.android.settings.n5x.util.SystemSettingCheckBoxPreference
+        android:key="hover_keyguard_unsecure_showing"
+        android:title="@string/hover_keyguard_unsecure_showing_title"
+        android:summary="@string/hover_keyguard_unsecure_showing_summary"
+	android:dependency="hover_active"
+        android:defaultValue="true" />
+
+    <com.android.settings.n5x.util.SystemSettingCheckBoxPreference
         android:key="hover_exclude_topmost"
         android:title="@string/hover_exclude_topmost_title"
         android:summary="@string/hover_exclude_topmost_summary"
