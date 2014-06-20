@@ -830,4 +830,8 @@
     <string name="category_interface_notifications">Notifications</string>
     <string name="category_interface_recents">Recents panel</string>
     <string name="category_interface_advanced">Advanced</string>
+
+    <!-- HOVER on Lock screen -->
+    <string name="hover_keyguard_unsecure_showing_title">Exclude on lock screen</string>
+    <string name="hover_keyguard_unsecure_showing_summary">Exclude HOVER notifications on unsecure lock screen</string>
 </resources>
