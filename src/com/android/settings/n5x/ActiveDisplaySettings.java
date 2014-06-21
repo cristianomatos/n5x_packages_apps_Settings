@@ -26,7 +26,6 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.text.format.DateFormat;
@@ -68,7 +67,7 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
     private ContentResolver mResolver;
     private Context mContext;
 
-    private SwitchPreference mEnabledPref;
+    private CheckBoxPreference mEnabledPref;
     private AppMultiSelectListPreference mExcludedAppsPref;
     private AppMultiSelectListPreference mPrivacyAppsPref;
     private CheckBoxPreference mBypassPref;
@@ -97,7 +96,7 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         mResolver = mContext.getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mEnabledPref = (SwitchPreference) prefSet.findPreference(KEY_ENABLED);
+        mEnabledPref = (CheckBoxPreference) prefSet.findPreference(KEY_ENABLED);
         mEnabledPref.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.ENABLE_ACTIVE_DISPLAY, 0) == 1));
         mEnabledPref.setOnPreferenceChangeListener(this);

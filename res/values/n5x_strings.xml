@@ -47,8 +47,7 @@
     <string name="ad_settings_title">Active display</string>
     <string name="ad_settings_summary">Change Active display settings</string>
     <string name="ad_enable_title">Enable</string>
-    <string name="ad_enable_summary_on">Active display enabled</string>
-    <string name="ad_enable_summary_off">Active display disabled</string>
+    <string name="ad_enable_summary">Completely enable or disable Active display</string>
     <string name="ad_bypass_title">Bypass mode</string>
     <string name="ad_bypass_summary">Pocket mode will launch the lock screen when no notifications exist and lock screen secure enabled</string>
     <string name="ad_text_title">Notification text</string>
