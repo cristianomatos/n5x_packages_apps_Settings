@@ -25,6 +25,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -57,6 +58,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
 
     private ListPreference mSmartPulldown;
     private ListPreference mCollapseOnDismiss;
+    private Preference mHeadsUp;
 
     CheckBoxPreference mReminder;
     ListPreference mReminderInterval;
@@ -68,7 +70,8 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.notification_drawer);
-        PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mHeadsUp = findPreference(Settings.System.HEADS_UP_NOTIFICATION);
 
         // Smart Pulldown
         mSmartPulldown = (ListPreference) findPreference(PRE_SMART_PULLDOWN);
@@ -125,6 +128,16 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         mReminderRingtone.setSummary(alert.getTitle(getActivity()));
         mReminderRingtone.setOnPreferenceChangeListener(this);
         mReminderRingtone.setEnabled(mode != 0);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        boolean headsUpEnabled = Settings.System.getInt(
+                getContentResolver(), Settings.System.HEADS_UP_NOTIFICATION, 0) == 1;
+        mHeadsUp.setSummary(headsUpEnabled
+                ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
