@@ -39,6 +39,7 @@
          android:defaultValue="false" />
 
     <PreferenceScreen
+            settings:includeXmlForSearch="@xml/quick_settings_panel"
             android:key="quick_settings_panel"
             android:fragment="com.android.settings.quicksettings.QuickSettings"
             android:title="@string/quick_settings_panel_title" />
