@@ -54,7 +54,7 @@ public class PieStyleSettings extends SettingsPreferenceFragment implements
     private static final String PREF_PIE_SHOW_BACKGROUND = "pie_show_background";
     private static final String PREF_PIE_SHOW_SNAP = "pie_show_snap";
 
-    private static final float PIE_CONTROL_SIZE_MIN = 0.98f;
+    private static final float PIE_CONTROL_SIZE_MIN = 0.6f;
     private static final float PIE_CONTROL_SIZE_MAX = 1.5f;
     private static final float PIE_CONTROL_SIZE_DEFAULT = 0.98f;
 
