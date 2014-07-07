@@ -116,7 +116,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
         if (root != null) {
             root.removeAll();
         }
-        addPreferencesFromResource(R.xml.security_settings_owner);
         addPreferencesFromResource(R.xml.security_settings);
         root = getPreferenceScreen();
 
@@ -151,9 +150,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
             }
         }
 
-        // Append the rest of the settings
-        // App security settings
-        addPreferencesFromResource(R.xml.security_settings_app_cyanogenmod);
         mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
         // Determine options based on device telephony support
         if (pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
@@ -168,8 +164,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
             appCategory.removePreference(mSmsSecurityCheck);
             root.removePreference(appCategory);
         }
-
-        addPreferencesFromResource(R.xml.security_settings_misc);
 
         if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
             MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
