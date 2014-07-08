@@ -92,8 +92,6 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
         if (root != null) {
             root.removeAll();
         }
-        addPreferencesFromResource(R.xml.security_settings);
-        root = getPreferenceScreen();
 
         // Add package manager to check if features are available
         PackageManager pm = getPackageManager();
@@ -133,6 +131,7 @@ public class LockscreenSecuritySettings extends RestrictedSettingsFragment
             }
         }
         addPreferencesFromResource(resid);
+        root = getPreferenceScreen();
 
         // lock after preference
         mLockAfter = (ListPreference) root.findPreference(KEY_LOCK_AFTER_TIMEOUT);
