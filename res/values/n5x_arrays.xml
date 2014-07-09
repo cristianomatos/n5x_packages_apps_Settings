@@ -559,13 +559,13 @@
         <item>**app**</item>
         <item>**expanded_desktop**</item>
         <item>**home**</item>
-        <item>**kill**</item>
+        <item>**killTask**</item>
         <item>**lastapp**</item>
         <item>**notifications**</item>
         <item>**menu_big**</item>
-        <item>**ime**</item>
+        <item>**imeSwitcher**</item>
         <item>**recents**</item>
-        <item>**power**</item>
+        <item>**standby**</item>
         <item>**screenshot**</item>
         <item>**search**</item>
         <item>**torch**</item>
