@@ -612,7 +612,7 @@
 
     <!-- Status bar | Clock -->
     <string name="status_bar_clock">Relógio e data</string>
-    <string name="status_bar_clock_title">Estilo do relógio e data</string>
+    <!-- <string name="status_bar_clock_title">Estilo do relógio e data</string> -->
     <string name="clock_title_enable">Alinhamento</string>
     <string name="clock_enabled">Habilitado</string>
     <string name="clock_disabled">Desabilitado</string>
