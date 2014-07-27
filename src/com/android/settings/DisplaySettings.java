@@ -81,6 +81,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_PEEK = "notification_peek";
     private static final String KEY_PEEK_PARTIAL_WAKELOCK_TIME = "peek_partial_wakelock_time";
     private static final String KEY_PEEK_NOTIFICATION_TIME = "peek_notification_time";
+    private static final String KEY_PROXIMITY_WAKE = "proximity_on_wake";
 
     private static final String CATEGORY_ADVANCED = "advanced_display_prefs";
     private static final String CATEGORY_DISPLAY = "display_prefs";
@@ -243,6 +244,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (!isTapToWakeSupported()) {
             advancedPrefs.removePreference(mTapToWake);
             mTapToWake = null;
+        } else {
+            advancedPrefs.removePreference(findPreference(KEY_PROXIMITY_WAKE));
+            Settings.System.putInt(getContentResolver(), Settings.System.PROXIMITY_ON_WAKE, 1);
         }
 
         mNotificationPeek = (CheckBoxPreference) findPreference(KEY_PEEK);
