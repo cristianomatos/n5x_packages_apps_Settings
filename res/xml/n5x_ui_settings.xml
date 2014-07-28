@@ -48,6 +48,7 @@
     <PreferenceScreen
         android:key="recents_panel"
         android:fragment="com.android.settings.n5x.RecentsPanelSettings"
+        android:dependency="custom_recent_mode"
         android:title="@string/recents_panel_settings_title" />
 
     </PreferenceCategory>
