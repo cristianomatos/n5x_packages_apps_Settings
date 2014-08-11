@@ -32,6 +32,18 @@
             android:title="@*android:string/bugreport_title"
             android:dialogTitle="@*android:string/bugreport_title" />
 
+    <!-- Init.d Controller -->
+    <PreferenceScreen
+        android:key="initD"
+        android:fragment="com.android.settings.n5x.InitD"
+        android:title="@string/init_d_title" />
+
+    <!-- Wakelock Blocker -->
+    <PreferenceScreen
+        android:key="wakelock_blocker"
+        android:fragment="com.android.settings.n5x.WakeLockBlocker" 
+        android:title="@string/wakelock_blocker" />
+
     <PreferenceScreen
         android:key="slimsizer"
         android:fragment="com.android.settings.cyanogenmod.SlimSizer"
