@@ -181,8 +181,7 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (newValue != null) {
             if (preference == mPerfProfilePref) {
-                Settings.System.putString(getActivity().getContentResolver(),
-                        Settings.System.PERFORMANCE_PROFILE, String.valueOf(newValue));
+                mPowerManager.setPowerProfile(String.valueOf(newValue));
                 setCurrentPerfProfileSummary();
                 return true;
             }
