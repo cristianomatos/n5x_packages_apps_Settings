@@ -388,25 +388,6 @@
     <string name="status_bar_traffic_style_rx">Mostrar apenas download</string>
     <string name="status_bar_traffic_style_rxtx">Mostrar download e upload</string>
 
-    <!-- Powersaver settings -->
-    <string name="power_saver_settings_title">Economia de energia</string>
-    <string name="power_saver_settings_summary">Otimizar a vida da bateria</string>
-    <string name="power_saver_toggles_mobile_title">Redes móveis</string>
-    <string name="power_saver_toggles_location_title">Localização</string>
-    <string name="power_saver_toggles_performance_title">Performance</string>
-    <string name="power_saver_toggles_gps_title">Desabilitar GPS</string>
-    <string name="power_saver_toggles_gps_summary">O serviço de localização por GPS será desativado ao desligar a tela</string>
-    <string name="power_saver_toggles_mobile_data_title">Desabilitar dados móveis</string>
-    <string name="power_saver_toggles_mobile_data_summary">Dados móveis serão desativados ao desligar a tela</string>
-    <string name="power_saver_toggles_cpu_profile_title">Economia de energia ativa</string>
-    <string name="power_saver_toggles_cpu_profile_summary">Limitar o máximo desempenho do CPU quando o dispositivo é usado</string>
-    <string name="power_saver_toggles_cpu_profile_toast">Modo Economia de energia ativa está desligado</string>
-    <string name="power_saver_toggles_cpu_governor_title">Economia em repouso</string>
-    <string name="power_saver_toggles_cpu_governor_summary">Conserva o uso da CPU quando a tela está desligada</string>
-    <string name="power_saver_toggles_other_title">Outros</string>
-    <string name="power_saver_toggles_notification_title">Habilitar notificação</string>
-    <string name="power_saver_toggles_notification_summary">Mostrar notificação quando o modo de economia de energia está em execução</string>
-
     <!-- Screen recorder -->
     <string name="power_menu_screenrecord_title">Gravar tela</string>
     <string name="screen_recorder_title">Gravador de tela</string>
