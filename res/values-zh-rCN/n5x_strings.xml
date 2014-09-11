@@ -21,7 +21,7 @@
     <string name="halo_notification_msgbox_summary">显示传入的通知消息框</string>
     <string name="halo_unlock_ping_title">解锁后弹出</string>
     <string name="halo_unlock_ping_summary">如果在锁屏状态下收到一个新的通知，解锁后 Halo 将自动弹出</string>
-	
+
     <string name="halo_size_title">Halo 大小</string>
     <string name="halo_size_summary">自定义 Halo 的尺寸</string>
     <string name="halo_size_miniscule">极小</string>
@@ -41,6 +41,7 @@
     <!-- Label for are-halo-notifications-allowed checkbox in app details [CHAR LIMIT=20] -->
     <string name="app_halo_label_black">HALO 黑名单</string>
     <string name="app_halo_label_white">HALO 白名单</string>
+
     <!-- Active Display -->
     <string name="active_display_title">主动显示</string>
     <string name="ad_settings_title">主动显示</string>
@@ -298,9 +299,9 @@
     <string name="ps_init_d_credits">AndersonAragao</string>
     <string name="dt_init_d_error">Init.d 脚本错误</string>
     <string name="dm_init_d_error">看起来 init.d 脚本没有正确设置。请联系您的 ROM 开发者。</string>
-      <string name="db_exit">退出</string>
+    <string name="db_exit">退出</string>
 
-      <!-- Init.d Settings : Warning dialog -->
+    <!-- Init.d Settings : Warning dialog -->
     <string name="init_warning_title">Init.d 脚本控制器</string>
     <string name="init_warning">在这里，您可以启用或禁用内置到系统中的 init.d 脚本文件的调整。如果您要启用一个颜色配置文件，请只启用一个！选择完您的调整后，请重启您的手机以使更改生效！</string>
 
@@ -366,25 +367,6 @@
     <string name="status_bar_traffic_style_hidden">隐藏</string>
     <string name="status_bar_traffic_style_rx">仅显示下行速度</string>
     <string name="status_bar_traffic_style_rxtx">显示上行和下行速度</string>
-
-    <!-- Powersaver settings -->
-    <string name="power_saver_settings_title">节能模式</string>
-    <string name="power_saver_settings_summary">优化电池使用寿命</string>
-    <string name="power_saver_toggles_mobile_title">移动网络</string>
-    <string name="power_saver_toggles_location_title">位置</string>
-    <string name="power_saver_toggles_performance_title">性能</string>
-    <string name="power_saver_toggles_gps_title">禁用位置服务</string>
-    <string name="power_saver_toggles_gps_summary">当屏幕关闭后将禁用 GPS 定位服务</string>
-    <string name="power_saver_toggles_mobile_data_title">禁用移动数据</string>
-    <string name="power_saver_toggles_mobile_data_summary">当屏幕关闭后将禁用移动数据连接</string>
-    <string name="power_saver_toggles_cpu_profile_title">主动节能</string>
-    <string name="power_saver_toggles_cpu_profile_summary">当您使用手机时，限制CPU的最大性能</string>
-    <string name="power_saver_toggles_cpu_profile_toast">主动节能模式已关闭</string>
-    <string name="power_saver_toggles_cpu_governor_title">处理器性能</string>
-    <string name="power_saver_toggles_cpu_governor_summary">当屏幕关闭后将切换到节能模式</string>
-    <string name="power_saver_toggles_other_title">其他</string>
-    <string name="power_saver_toggles_notification_title">启用通知</string>
-    <string name="power_saver_toggles_notification_summary">当省电模式正在运行时，在通知栏显示通知信息（再次切换主开关生效）</string>
 
     <!-- Screen Recorder -->
     <string name="power_menu_screenrecord_title">屏幕录像</string>
@@ -518,6 +500,170 @@
     <string name="unlock_set_unlock_gesture_title">手势</string>
     <string name="unlock_set_unlock_gesture_summary">低安全性, 根据实验的</string>
     <string name="unlock_set_unlock_mode_gesture">手势</string>
+
+    <!-- Pie Control -->
+    <string name="pie_control_category">Pie 手势</string>
+    <string name="pie_control_title">PIE 手势</string>
+    <string name="pie_control_summary">启用 Pie 手势</string>
+    <string name="pie_control_size">导航栏大小</string>
+    <string name="pie_control_trigger_positions">触发区选项</string>
+    <string name="pie_control_trigger_left">左侧</string>
+    <string name="pie_control_trigger_bottom">底部</string>
+    <string name="pie_control_trigger_right">右侧</string>
+    <string name="pie_control_trigger_top">顶部</string>
+    <string name="pie_control_trigger_top_summary">顶部 Pie 不显示状态和时钟信息</string>
+    <string name="pie_button_style">按键样式</string>
+    <string name="pie_button_color_title">按键颜色</string>
+    <string name="pie_button_alpha_title">按键透明度</string>
+    <string name="pie_button_outline_color_title">按键轮廓颜色</string>
+    <string name="pie_button_pressed_color_title">按下按键颜色</string>
+    <string name="pie_button_long_pressed_color_title">按键长按颜色</string>
+    <string name="pie_button_pressed_alpha_title">按下按键透明度</string>
+    <string name="pie_icon_style">按键图标样式</string>
+    <string name="pie_icon_color_title">按键图标颜色</string>
+    <string name="pie_icon_color_mode_title">按键图标颜色模式</string>
+    <string name="pie_icon_color_mode_dialog_title">着色</string>
+    <string name="pie_icon_color_mode_summary">更改按键图标的颜色模式</string>
+    <string name="pie_trigger_note_title">注意</string>
+    <string name="pie_trigger_note_summary">为避免跟状态栏及导航栏互相干扰, 触发区域会根据重叠的边缘范围自动调整。</string>
+    <string name="pie_background_color_title">背景颜色</string>
+    <string name="pie_snap_color_title">轴心颜色</string>
+    <string name="pie_text_color_title">文字颜色</string>
+    <string name="pie_background_alpha_title">背景透明度</string>
+    <string name="pie_mirror_right_title">Pie 右镜像</string>
+    <string name="pie_mirror_right_summary">Pie 右镜像在横轴上</string>
+    <string name="pie_style">样式和尺寸</string>
+    <string name="pie_style_title">风格</string>
+    <string name="pie_dimens_title">尺寸</string>
+    <string name="pie_show_snap_title">显示轴心</string>
+    <string name="pie_show_snap_summary">触发区边缘显示轴心</string>
+    <string name="pie_show_text_title">显示状态和时钟</string>
+    <string name="pie_show_text_summary">显示手机状态、时钟和日期等信息</string>
+    <string name="pie_show_background_title">显示背景</string>
+    <string name="pie_show_background_summary">启用 Pie 屏幕背景</string>
+    <string name="pie_button">按键</string>
+    <string name="pie_button_second_layer">第二层按键</string>
+    <string name="pie_button_second_layer_summary">更改第二层的按键</string>
+    <string name="pie_button_style_summary">更改 Pie 按键样式</string>
+    <string name="pie_style_reset_message">重置样式项目为默认？</string>
+    <string name="pie_disable_ime_triggers_title">减少触发区大小</string>
+    <string name="pie_disable_ime_triggers_summary">减少左侧和右侧的触发区大小。如果键盘处于活动状态。</string>
+    <string name="title_pref_menu_display">菜单可见性</string>
+    <string name="summary_pref_menu_display">您想要的菜单键如何以及何时出现？</string>
+    <string name="navigation_menu_default_jb_behavior">当需要时出现（默认）</string>
+    <string name="navigation_menu_never_show">永不显示</string>
+    <string name="navigation_menu_always_show">总是显示</string>
+    <string name="default_string">默认</string>
+    <string name="reset_message">恢复默认设置？</string>
+    <string name="shortcut_action_help_pie_second_layer_delete_last_entry">在列表中删除每个%1$s将会完全停用第二层 Pie</string>
+
+    <!-- Button shorcut actions -->
+    <string name="shortcut_action_app">自定义应用</string>
+    <string name="shortcut_action_expanded_desktop">扩展桌面</string>
+    <string name="shortcut_action_home">主屏幕</string>
+    <string name="shortcut_action_back">返回</string>
+    <string name="shortcut_action_recent">近期任务</string>
+    <string name="shortcut_action_lastapp">上一个应用</string>
+    <string name="shortcut_action_search">搜索</string>
+    <string name="shortcut_action_screenshot">屏幕截图</string>
+    <string name="shortcut_action_menu">菜单</string>
+    <string name="shortcut_action_menu_big">菜单</string>
+    <string name="shortcut_action_ime">开启输入法切换器</string>
+    <string name="shortcut_action_kill">终止程序</string>
+    <string name="shortcut_action_power">关闭屏幕</string>
+    <string name="shortcut_action_notifications">通知</string>
+    <string name="shortcut_action_none">无</string>
+    <string name="shortcut_action_torch">手电筒</string>
+    <string name="shortcut_action_longpress">长按：</string>
+    <string name="shortcut_action_select_action_longpress">选择长按动作：</string>
+    <string name="shortcut_action_select_action">选择动作：</string>
+    <string name="shortcut_action_select_action_newbutton">选择新按钮：</string>
+    <string name="shortcut_action_reset">重置</string>
+    <string name="shortcut_action_add">添加</string>
+    <string name="shortcut_action_reset_message">重置所有项为默认值？</string>
+    <string name="shortcut_action_max">已达到最大项目上限</string>
+    <string name="shortcut_action_warning">警告</string>
+    <string name="shortcut_action_warning_message">这是不可能删除最后一个项目</string>
+    <string name="shortcut_action_disable_message">"已停用\n添加一个项目来启用此功能"</string>
+    <string name="shortcut_image_not_valid">选定的应用无法提供可用的图标或者不支持剪裁操作.请尝试其他应用.</string>
+    <string name="shortcut_duplicate_entry">所选择的动作不能被添加两次</string>
+
+    <string name="shortcut_action_help_shortcut">快捷方式</string>
+    <string name="shortcut_action_help_button">按键</string>
+    <string name="shortcut_action_help_icon">，当点击该图标将出现自定义选项</string>
+    <string name="shortcut_action_help_main">"若要添加一个%1$s，点击添加图标。一旦添加%1$s后，点击哪一行会改变目标%2$s\n若要移除一个%1$s，朝左或右边横向滑动。在左侧列表中通过上下拖曳锚形重新排序%1$s。\n若要清除或重置为默认值，请点击重置图标。"</string>
+    <string name="shortcut_action_help_delete_last_entry">在列表中删除每个%1$s将会完全停用该功能</string>
+    <string name="shortcut_action_help">帮助</string>
+
+    <string name="icon_picker_type">选择图标类型:</string>
+    <string name="icon_default">默认</string>
+    <string name="icon_presets">系统图标</string>
+    <string name="icon_custom">图库</string>
+    <string name="shortcuts_icon_picker_alarm">闹钟</string>
+    <string name="shortcuts_icon_picker_andy">安迪</string>
+    <string name="shortcuts_icon_picker_battery">电池</string>
+    <string name="shortcuts_icon_picker_browser">浏览器</string>
+    <string name="shortcuts_icon_picker_calendar">日历</string>
+    <string name="shortcuts_icon_picker_camera">摄像头</string>
+    <string name="shortcuts_icon_picker_cloud">云</string>
+    <string name="shortcuts_icon_picker_contact">联系人</string>
+    <string name="shortcuts_icon_picker_directdial">直接拨号</string>
+    <string name="shortcuts_icon_picker_directmessage">直传信息</string>
+    <string name="shortcuts_icon_picker_drive">云存储</string>
+    <string name="shortcuts_icon_picker_dropbox">Dropbox</string>
+    <string name="shortcuts_icon_picker_email">Email</string>
+    <string name="shortcuts_icon_picker_email2">电子邮件备用</string>
+    <string name="shortcuts_icon_picker_evernote">印象笔记</string>
+    <string name="shortcuts_icon_picker_facebook">Facebook</string>
+    <string name="shortcuts_icon_picker_favorite">收藏联系人</string>
+    <string name="shortcuts_icon_picker_file_browser">文件浏览器</string>
+    <string name="shortcuts_icon_picker_file_browser2">文件浏览器备用</string>
+    <string name="shortcuts_icon_picker_fitness">Fitness</string>
+    <string name="shortcuts_icon_picker_gallery">图库</string>
+    <string name="shortcuts_icon_picker_gears">Gears</string>
+    <string name="shortcuts_icon_picker_google_small">Google</string>
+    <string name="shortcuts_icon_picker_gplus">Google+</string>
+    <string name="shortcuts_icon_picker_gtalk">环聊</string>
+    <string name="shortcuts_icon_picker_help">帮助</string>
+    <string name="shortcuts_icon_picker_joystick">手柄</string>
+    <string name="shortcuts_icon_picker_key">密钥/帐户</string>
+    <string name="shortcuts_icon_picker_laptop">笔记本</string>
+    <string name="shortcuts_icon_picker_notes">便签</string>
+    <string name="shortcuts_icon_picker_luggage">旅行</string>
+    <string name="shortcuts_icon_picker_maps">地图</string>
+    <string name="shortcuts_icon_picker_market">市场</string>
+    <string name="shortcuts_icon_picker_movie">电影</string>
+    <string name="shortcuts_icon_picker_music">音乐</string>
+    <string name="shortcuts_icon_picker_nav">导航</string>
+    <string name="shortcuts_icon_picker_phone">通话</string>
+    <string name="shortcuts_icon_picker_package">Package</string>
+    <string name="shortcuts_icon_picker_pinterest">分享</string>
+    <string name="shortcuts_icon_picker_play">预览</string>
+    <string name="shortcuts_icon_picker_pocket">播客</string>
+    <string name="shortcuts_icon_picker_quicksettings">快速开关</string>
+    <string name="shortcuts_icon_picker_rss">RSS 订阅</string>
+    <string name="shortcuts_icon_picker_sdcard">储存器</string>
+    <string name="shortcuts_icon_picker_search">搜索</string>
+    <string name="shortcuts_icon_picker_sms">信息</string>
+    <string name="shortcuts_icon_picker_tasks">任务</string>
+    <string name="shortcuts_icon_picker_terminal">终端</string>
+    <string name="shortcuts_icon_picker_transit">运输</string>
+    <string name="shortcuts_icon_picker_tv">电视</string>
+    <string name="shortcuts_icon_picker_twitter">Twitter</string>
+    <string name="shortcuts_icon_picker_unlock">解锁</string>
+
+    <string name="icon_color_mode_all_icons">所有图标</string>
+    <string name="icon_color_mode_system_icons">系统图标</string>
+    <string name="icon_color_mode_system_custom_icons">系统和自定义图标</string>
+    <string name="icon_picker_choose_icon_title">选择图标</string>
+    <string name="group_applications">应用</string>
+	    <string name="select_custom_app_title">选择自定义的应用</string>
+	<string name="shortcuts_color_title">图标颜色</string>
+    <string name="shortcuts_color_summary">使用快捷方式图标</string>
+    <string name="shortcuts_color_mode_title">图标颜色模式</string>
+    <string name="shortcuts_color_mode_summary">更改快捷方式的图标颜色模式</string>
+
+    <!-- Sound settings screen, setting check box label -->
     <string name="camera_sounds_title">相机快门音</string>
     <string name="camera_sounds_summary">警告: 禁用相机快门音在部分国家属于非法行为！</string>
 
